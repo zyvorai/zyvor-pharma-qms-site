@@ -60,7 +60,7 @@
   <ul class="chips" aria-label="Status">
     <li class="ok">Pilot-ready</li>
     <li>Self-hosted</li>
-    <li class="ok">59 modules</li>
+    <li class="ok">70 modules</li>
     <li class="ok">India / US / EU</li>
     <li class="warn">Synthetic / demo data</li>
     <li class="warn">Not validated</li>
@@ -75,7 +75,7 @@
 </section>
 
 <section class="band" aria-label="By the numbers">
-  <div><b>59</b><span>modules in the feature catalogue</span></div>
+  <div><b>70</b><span>modules in the feature catalogue</span></div>
   <div><b>18</b><span>market / regulatory modules</span></div>
   <div><b>4</b><span>deploy paths: FluxVM, compose, k3s, Windows</span></div>
   <div><b>1</b><span>honest spine: batch → lab → QA → release</span></div>
@@ -122,6 +122,7 @@
     <div class="card rv"><h3>Stability &amp; environment</h3><p>Stability studies and pulls, environmental readings, temperature excursions and notifications.</p></div>
     <div class="card rv"><h3>Warehouse &amp; supply</h3><p>Locations, inventory moves, suppliers and SCAR-style actions, labels and packaging orders.</p></div>
     <div class="card rv"><h3>Governance</h3><p>Document metadata, training logs, change control, equipment due dates, ALCOA+ checks and append-only audit export.</p></div>
+    <div class="card rv"><h3>AI assistants (propose-only)</h3><p>Deviation, CAPA, OOS, CoA, complaint, change, APQR and inspection drafts, plus ask-this-batch and release-gap explainers. Humans accept — never auto-releases. Not GMP-validated.</p></div>
   </div>
 </section>
 
@@ -163,7 +164,8 @@
       <tr><td>Market gateways</td><td>No live CDSCO SUGAM, FDA ESG, EMVS or E2B exchange. Market modules are electronic-record stubs.</td></tr>
       <tr><td>Retail pharmacy</td><td>This is <b>not</b> Zyvora Pharmacy (retail medical stores). Separate product, separate site.</td></tr>
       <tr><td>Security review</td><td>No independent penetration test yet. Audit trail is append-only application logging, not a claim of tamper-proof storage.</td></tr>
-      <tr><td>Also not built yet</td><td>Customer-owned IQ/OQ/PQ packs, ERP/LIMS bidirectional connectors, full PSUR authoring, live serialization repositories.</td></tr>
+      <tr><td>AI</td><td>Propose-only template drafts. <b>No model is GMP-validated.</b> AI never releases a batch, approves QA, or files to a regulator.</td></tr>
+      <tr><td>Also not built yet</td><td>Customer-owned IQ/OQ/PQ packs, ERP/LIMS bidirectional connectors, full PSUR authoring, live serialization repositories, live LLM providers (templates today).</td></tr>
     </tbody>
   </table>
 </section>
@@ -203,6 +205,7 @@
   <details><summary>Is this the same as Zyvora Pharmacy?</summary><p>No. Zyvora Pharmacy is retail medical-store software. Pharma QMS is for pharmaceutical manufacturers — batch, lab and QA release.</p></details>
   <details><summary>Can we use it for regulated batch release?</summary><p>Not without your own validation programme. The product itself is not validated for regulated release decisions.</p></details>
   <details><summary>Does it cover India, US and EU?</summary><p>Yes as pilot electronic-record modules (APQR/APR/PQR, PV, FAR, QP, serialization, GDP, licences, and more). It does not connect to live regulatory gateways.</p></details>
+  <details><summary>Does the AI release batches or file to regulators?</summary><p>No. Assistants are propose-only: they draft deviation, CAPA, OOS, CoA, complaint, change, APQR and inspection text, or explain release gaps / answer ask-this-batch. A person must accept, edit or reject. No model is GMP-validated. Set <code>PHARMA_AI_MODE=off</code> to disable generative drafts.</p></details>
   <details><summary>Where does our data live?</summary><p>On infrastructure you run: PostgreSQL behind the Go API. Compose, FluxVM, k3s or Windows/WSL.</p></details>
   <details><summary>Can I see the source?</summary><p>The product source is private. This repository is the public website only — no application source. Ask sales what we can share with evaluators.</p></details>
 </section>

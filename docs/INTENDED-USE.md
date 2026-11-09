@@ -7,6 +7,7 @@
 - Evaluate batch → laboratory → QA → release workflows with **synthetic or non-regulated demonstration data**
 - Explore India / US / EU / abroad **market module stubs** (APQR, PV, FAR, QP, serialization, GDP, licences, …)
 - Self-host on compose, FluxVM, k3s or Windows/WSL for an internal pilot
+- Try **propose-only AI drafts** (deviation, CAPA, OOS, CoA, etc.) that a person must accept — never auto-release
 
 ## Not intended
 
@@ -14,6 +15,7 @@
 - Live regulatory gateway filing (CDSCO, FDA ESG, EMVS, E2B)
 - Retail pharmacy operations (see [Zyvora Pharmacy](https://zyvorai.github.io/zyvor-pharma-site/))
 - Any claim of GMP, Part 11, Annex 11 or Schedule M compliance by the software alone
+- Any claim that AI drafts are validated, accurate, or may act without a named human review
 
 ## Evidence
 
