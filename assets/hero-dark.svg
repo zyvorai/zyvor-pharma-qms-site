@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Pharma QMS dashboard illustration with synthetic data, dark">
+  <rect width="1200" height="750" fill="#000"/>
+  <rect x="40" y="40" width="220" height="670" rx="20" fill="#1d1d1f" stroke="#3a3a3c"/>
+  <rect x="70" y="70" width="120" height="18" rx="6" fill="#2997ff"/>
+  <rect x="70" y="120" width="160" height="12" rx="4" fill="#3a3a3c"/>
+  <rect x="70" y="150" width="140" height="12" rx="4" fill="#3a3a3c"/>
+  <rect x="70" y="180" width="150" height="12" rx="4" fill="#3a3a3c"/>
+  <rect x="70" y="210" width="130" height="12" rx="4" fill="#123554"/>
+  <rect x="70" y="240" width="145" height="12" rx="4" fill="#3a3a3c"/>
+  <rect x="290" y="40" width="870" height="90" rx="20" fill="#1d1d1f" stroke="#3a3a3c"/>
+  <text x="320" y="95" font-family="-apple-system,system-ui,sans-serif" font-size="28" fill="#f5f5f7" font-weight="700">Batch release spine</text>
+  <text x="620" y="95" font-family="-apple-system,system-ui,sans-serif" font-size="16" fill="#a1a1a6">synthetic pilot data</text>
+  <rect x="290" y="150" width="270" height="170" rx="20" fill="#1d1d1f" stroke="#3a3a3c"/>
+  <text x="320" y="195" font-family="-apple-system,system-ui,sans-serif" font-size="18" fill="#a1a1a6">Active batches</text>
+  <text x="320" y="250" font-family="-apple-system,system-ui,sans-serif" font-size="48" fill="#2997ff" font-weight="700">12</text>
+  <rect x="580" y="150" width="270" height="170" rx="20" fill="#1d1d1f" stroke="#3a3a3c"/>
+  <text x="610" y="195" font-family="-apple-system,system-ui,sans-serif" font-size="18" fill="#a1a1a6">Open OOS</text>
+  <text x="610" y="250" font-family="-apple-system,system-ui,sans-serif" font-size="48" fill="#ffd60a" font-weight="700">2</text>
+  <rect x="870" y="150" width="290" height="170" rx="20" fill="#1d1d1f" stroke="#3a3a3c"/>
+  <text x="900" y="195" font-family="-apple-system,system-ui,sans-serif" font-size="18" fill="#a1a1a6">QA review</text>
+  <text x="900" y="250" font-family="-apple-system,system-ui,sans-serif" font-size="48" fill="#30d158" font-weight="700">4</text>
+  <rect x="290" y="340" width="870" height="370" rx="20" fill="#1d1d1f" stroke="#3a3a3c"/>
+  <text x="320" y="385" font-family="-apple-system,system-ui,sans-serif" font-size="18" fill="#a1a1a6">Release path</text>
+  <rect x="320" y="420" width="160" height="44" rx="22" fill="#16351f"/><text x="350" y="448" font-family="-apple-system,system-ui,sans-serif" font-size="15" fill="#30d158">Draft</text>
+  <rect x="500" y="420" width="160" height="44" rx="22" fill="#16351f"/><text x="520" y="448" font-family="-apple-system,system-ui,sans-serif" font-size="15" fill="#30d158">In progress</text>
+  <rect x="680" y="420" width="160" height="44" rx="22" fill="#123554"/><text x="715" y="448" font-family="-apple-system,system-ui,sans-serif" font-size="15" fill="#2997ff">Laboratory</text>
+  <rect x="860" y="420" width="160" height="44" rx="22" fill="#3a2a00"/><text x="885" y="448" font-family="-apple-system,system-ui,sans-serif" font-size="15" fill="#ffd60a">QA review</text>
+  <rect x="320" y="500" width="780" height="14" rx="7" fill="#3a3a3c"/>
+  <rect x="320" y="540" width="640" height="14" rx="7" fill="#3a3a3c"/>
+  <rect x="320" y="580" width="720" height="14" rx="7" fill="#3a3a3c"/>
+  <rect x="320" y="620" width="520" height="14" rx="7" fill="#3a3a3c"/>
+  <text x="320" y="680" font-family="-apple-system,system-ui,sans-serif" font-size="14" fill="#a1a1a6">Illustration · not a product screenshot · synthetic data</text>
+</svg>
