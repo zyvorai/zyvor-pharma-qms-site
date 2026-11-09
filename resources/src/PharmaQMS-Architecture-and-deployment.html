@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><title>Pharma QMS · architecture-deployment</title>
+<link rel="stylesheet" href="print.css">
+</head><body>
+<article class="sheet">
+  <header class="top">
+    <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
+    <div class="meta">Architecture &amp; deployment<br>Zyvor AI Labs · 2026</div>
+  </header>
+  <p class="kicker">Architecture and deployment</p>
+  <h1>Simple to run. <em>Yours</em> to host.</h1>
+  <p class="lede">React console + Go API + PostgreSQL. Optional native desktop launchers wrap the same stack for local evaluation.</p>
+  <h2>Runtime pieces</h2>
+  <table>
+    <tr><th>Console</th><td>React 19 + Vite SPA. Desktop / install builds serve it same-origin from the API (<code>UI_DIR</code>).</td></tr>
+    <tr><th>API</th><td>Go (chi, pgx). Feature catalogue, batch/lab/QA modules, market stubs, append-only audit.</td></tr>
+    <tr><th>Database</th><td>PostgreSQL with SQL migrations. Default local DSN uses database <code>zyvor_pharma</code>.</td></tr>
+    <tr><th>Desktop</th><td><code>pharma-desktop</code> / PharmaQMS.app / PharmaQMS.exe — start Postgres if needed, run API+UI, open the browser.</td></tr>
+  </table>
+  <h2>Deploy paths</h2>
+  <div class="grid2">
+    <div class="card"><h3>Desktop</h3><p><code>make desktop</code> · <code>make desktop-macos</code> · <code>make desktop-windows</code>. Best for an afternoon try.</p></div>
+    <div class="card"><h3>Compose</h3><p>Podman/Docker Compose for Postgres + services on Mac / Linux / WSL.</p></div>
+    <div class="card"><h3>FluxVM</h3><p>macOS FluxVM / lima path for a contained plant-like stack.</p></div>
+    <div class="card"><h3>k3s</h3><p>Helm-oriented install for a small cluster pilot.</p></div>
+  </div>
+  <h2>Install bundle (public site releases)</h2>
+  <p>Published assets: <code>get.sh</code>, <code>get.ps1</code>, <code>pharma-qms-install.tar.gz</code>, <code>SHA256SUMS</code>. Built from the private product tree via <code>make package-install</code>. No application source on the marketing repo.</p>
+  <h2>Default local endpoints</h2>
+  <table>
+    <tr><th>Health</th><td><code>http://127.0.0.1:8080/healthz</code></td></tr>
+    <tr><th>API + UI</th><td><code>http://127.0.0.1:8080/</code> (desktop / install)</td></tr>
+    <tr><th>Dev split</th><td>API :8080 · Vite UI :5173</td></tr>
+  </table>
+  <p class="warn"><strong>Pilot only.</strong> Architecture choices favour evaluability, not a validated GxP hosting claim.</p>
+  <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>zyvorai.github.io/zyvor-pharma-qms-site/deploy/</span></footer>
+</article>
+</body></html>

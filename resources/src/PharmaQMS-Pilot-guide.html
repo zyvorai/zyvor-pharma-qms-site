@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><title>Pharma QMS · pilot-guide</title>
+<link rel="stylesheet" href="print.css">
+</head><body>
+<article class="sheet">
+  <header class="top">
+    <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
+    <div class="meta">Pilot guide<br>Zyvor AI Labs · 2026</div>
+  </header>
+  <p class="kicker">Pilot guide</p>
+  <h1>Prove the fit in an <em>afternoon.</em></h1>
+  <p class="lede">A short path for plant QA / IT to decide whether Pharma QMS is worth a deeper pilot. Use synthetic data only.</p>
+  <ul class="chips"><li class="ok">Local only</li><li>Mac · Windows · Linux</li><li class="warn">Synthetic data</li><li class="warn">Not Part 11</li></ul>
+  <h2>Before you start</h2>
+  <ul>
+    <li>Podman or Docker Desktop (for Postgres), or any Postgres on :5432.</li>
+    <li>Or build from the product tree: <code>make desktop</code> / <code>make desktop-macos</code>.</li>
+  </ul>
+  <h2>One-line install (when a release is published)</h2>
+  <div class="card"><p><strong>Mac / Linux</strong><br><code>curl -fsSL …/get.sh | sh -s -- up</code></p>
+  <p style="margin-top:8px"><strong>Windows PowerShell</strong><br><code>&amp; ([scriptblock]::Create((irm …/get.ps1))) up</code></p></div>
+  <h2>What a pilot should prove</h2>
+  <table>
+    <tr><th>1. Health</th><td><code>curl -sf http://127.0.0.1:8080/healthz</code> returns ok.</td></tr>
+    <tr><th>2. Catalogue</th><td><code>/api/v1/features</code> lists 50+ modules and markets india / us / eu / global.</td></tr>
+    <tr><th>3. Batch path</th><td>As <code>mfg</code>, create a batch; as <code>lab</code>, enter results; as <code>qa</code>, approve / release.</td></tr>
+    <tr><th>4. OOS</th><td>Trigger an out-of-spec result and walk the OOS record.</td></tr>
+    <tr><th>5. Markets</th><td>Open Markets — draft an APQR (India) or APR (US) / PQR (EU) stub.</td></tr>
+    <tr><th>6. Stop</th><td>Quit the app or run installer <code>down</code>. Data stays under <code>~/.zyvor-pharma-qms</code> / your Postgres.</td></tr>
+  </table>
+  <h2>Decision questions</h2>
+  <div class="grid2">
+    <div class="card"><h3>Does the spine match your plant?</h3><p>Batch → lab → QA without exporting to Excel mid-flight.</p></div>
+    <div class="card"><h3>Can IT host it?</h3><p>Compose, FluxVM, k3s or Windows/WSL — pick one path.</p></div>
+    <div class="card"><h3>What must validation cover?</h3><p>You own IQ/OQ/PQ. This product is not validated for you.</p></div>
+    <div class="card"><h3>What integrations matter?</h3><p>ERP / LIMS connectors are not built; plan them as a phase-2 ask.</p></div>
+  </div>
+  <p class="warn"><strong>Not a regulated pilot by itself.</strong> Contact sales@zyvor.dev for a guided walkthrough. Product source is private; this public site ships no application code.</p>
+  <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>zyvorai.github.io/zyvor-pharma-qms-site/try/</span></footer>
+</article>
+</body></html>

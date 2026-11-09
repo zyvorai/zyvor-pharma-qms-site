@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><title>Pharma QMS · IT-questions</title>
+<link rel="stylesheet" href="print.css">
+</head><body>
+<article class="sheet">
+  <header class="top">
+    <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
+    <div class="meta">IT &amp; security Q&amp;A<br>Zyvor AI Labs · 2026</div>
+  </header>
+  <p class="kicker">IT and security questions</p>
+  <h1>Straight answers for <em>your</em> team.</h1>
+  <table>
+    <tr><th>Where does data live?</th><td>On infrastructure you operate — PostgreSQL behind the Go API. Desktop home under <code>~/.zyvor-pharma-qms</code> for local binaries.</td></tr>
+    <tr><th>Cloud required?</th><td>No. Compose, FluxVM, k3s, or native desktop. SaaS is not the default story.</td></tr>
+    <tr><th>SSO / OIDC?</th><td>Not the primary pilot surface yet. Desktop uses a role actor selector for synthetic walkthroughs.</td></tr>
+    <tr><th>Is traffic encrypted?</th><td>You terminate TLS at your reverse proxy / ingress. Localhost desktop demos often use HTTP on loopback only.</td></tr>
+    <tr><th>Multi-tenant?</th><td>Single-plant pilot orientation. Not a multi-tenant SaaS control plane.</td></tr>
+    <tr><th>Backups?</th><td>Your Postgres backup policy. The product does not ship a managed backup service.</td></tr>
+    <tr><th>Pen tested?</th><td>No independent pen-test report published yet.</td></tr>
+    <tr><th>Source code?</th><td>Private product repository. Public site is marketing + install scripts only.</td></tr>
+    <tr><th>Part 11?</th><td>No. Not validated. Customer owns validation if they move beyond synthetic pilots.</td></tr>
+    <tr><th>Dependencies?</th><td>Go API, React console, PostgreSQL, optional Podman/Docker for local Postgres.</td></tr>
+    <tr><th>Windows?</th><td>Yes — PharmaQMS.exe / PowerShell installer / WSL compose path.</td></tr>
+    <tr><th>macOS?</th><td>Yes — PharmaQMS.app and CLI desktop launcher.</td></tr>
+    <tr><th>Updates?</th><td>Via product releases you choose to deploy; public get.sh verifies SHA-256 of the install tarball.</td></tr>
+    <tr><th>Logging?</th><td>API logs + append-only application audit events. Wire to your SIEM as you prefer.</td></tr>
+  </table>
+  <p class="warn">Still unsure? Email <strong>security@zyvor.dev</strong> or <strong>sales@zyvor.dev</strong>. Please do not file public GitHub issues with sensitive infrastructure detail.</p>
+  <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>security@zyvor.dev</span></footer>
+</article>
+</body></html>

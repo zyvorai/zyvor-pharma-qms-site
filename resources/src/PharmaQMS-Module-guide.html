@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><title>Pharma QMS · modules</title>
+<link rel="stylesheet" href="print.css">
+</head><body>
+<article class="sheet">
+  <header class="top">
+    <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
+    <div class="meta">Module guide · 1/3<br>Zyvor AI Labs · 2026</div>
+  </header>
+  <p class="kicker">Module guide</p>
+  <h1>What each area <em>does.</em></h1>
+  <p class="lede">Counts come from the product feature catalogue (<code>/api/v1/features</code>). Pilot electronic records — not validated.</p>
+  <h2>Manufacturing</h2>
+  <table>
+    <tr><th>Batches</th><td>Create and progress manufacturing batches through the release spine.</td></tr>
+    <tr><th>Recipes</th><td>Bill of materials / process recipes linked to batches.</td></tr>
+    <tr><th>eBMR</th><td>Electronic batch manufacturing record steps and sign-offs (pilot).</td></tr>
+    <tr><th>IPC</th><td>In-process controls recorded against the batch.</td></tr>
+    <tr><th>Line clearance</th><td>Clearance checks before a campaign continues.</td></tr>
+    <tr><th>Cleaning / packaging / retains</th><td>Plant floor adjacent records on the same spine.</td></tr>
+  </table>
+  <h2>Laboratory</h2>
+  <table>
+    <tr><th>Samples &amp; results</th><td>Log samples, enter results against specifications.</td></tr>
+    <tr><th>Specs</th><td>Specification limits used for automatic OOS detection.</td></tr>
+    <tr><th>OOS</th><td>Out-of-specification investigations as first-class records.</td></tr>
+    <tr><th>Second-person verify</th><td>Independent verification before results count for release.</td></tr>
+  </table>
+  <h2>Quality &amp; release</h2>
+  <table>
+    <tr><th>Deviations / CAPA</th><td>Quality events and corrective / preventive actions.</td></tr>
+    <tr><th>Complaints / audits / risk</th><td>Post-market and internal quality governance stubs.</td></tr>
+    <tr><th>QA approvals</th><td>QA disposition on the batch path.</td></tr>
+    <tr><th>Release checklist</th><td>Structured gates before release / recall actions.</td></tr>
+  </table>
+  <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>Page 1 of 3</span></footer>
+</article>
+
+<article class="sheet page-break">
+  <header class="top">
+    <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
+    <div class="meta">Module guide · 2/3<br>Zyvor AI Labs · 2026</div>
+  </header>
+  <h2>Materials, traceability, plant</h2>
+  <table>
+    <tr><th>Lots / quarantine</th><td>Material lots with quarantine and release states.</td></tr>
+    <tr><th>Suppliers / SCAR</th><td>Supplier records and corrective action requests.</td></tr>
+    <tr><th>Genealogy</th><td>Forward / backward batch genealogy.</td></tr>
+    <tr><th>CoA / recalls</th><td>Certificate of analysis draft and recall case records.</td></tr>
+    <tr><th>Stability / environment</th><td>ICH-style studies, pulls, env readings, excursions.</td></tr>
+    <tr><th>Warehouse</th><td>Locations and inventory moves.</td></tr>
+    <tr><th>Documents / training / change / equipment / labels</th><td>Governance modules beside the release spine.</td></tr>
+  </table>
+  <h2>Platform</h2>
+  <table>
+    <tr><th>Notifications</th><td>In-product notification stubs for pilot workflows.</td></tr>
+    <tr><th>Reports / search / metrics</th><td>Operational views over pilot data.</td></tr>
+    <tr><th>Audit</th><td>Append-only application audit trail.</td></tr>
+    <tr><th>Feature catalogue</th><td><code>GET /api/v1/features</code> and markets summary — source of truth for module lists on the site.</td></tr>
+  </table>
+  <p class="warn">Module names describe capability shape for evaluation. Presence of a module is <strong>not</strong> a GMP or Part 11 compliance claim.</p>
+  <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>Page 2 of 3</span></footer>
+</article>
+
+<article class="sheet page-break">
+  <header class="top">
+    <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
+    <div class="meta">Module guide · 3/3<br>Zyvor AI Labs · 2026</div>
+  </header>
+  <h2>Market / regulatory modules (18)</h2>
+  <table>
+    <tr><th>APQR / APR / PQR</th><td>India Schedule M product quality review · US annual product review · EU PQR stubs.</td></tr>
+    <tr><th>Self-inspection</th><td>Scheduled internal inspections with market scope.</td></tr>
+    <tr><th>Pharmacovigilance</th><td>AE / PV case stubs for MAH-style walkthroughs.</td></tr>
+    <tr><th>Field alerts / FAR</th><td>Field alert report style records (US-oriented).</td></tr>
+    <tr><th>EU QP</th><td>Qualified Person release attestation stubs.</td></tr>
+    <tr><th>Serialization</th><td>Scheme-tagged serial events (India TTS / DSCSA / FMD labels) — not live repositories.</td></tr>
+    <tr><th>Validation + CSV</th><td>System / CSV inventory for honest Part 11 readiness discussions.</td></tr>
+    <tr><th>Tech transfer / GDP</th><td>Transfer and distribution practice records.</td></tr>
+    <tr><th>Licences / MA</th><td>CDSCO / FEI / MIA-style licence tracking fields.</td></tr>
+    <tr><th>Water / inspections</th><td>Utilities and regulatory inspection observation stubs.</td></tr>
+    <tr><th>ALCOA+ / hygiene / hold-time / export CPP</th><td>Additional abroad / plant hygiene and export packs.</td></tr>
+  </table>
+  <p class="lede" style="margin-top:16px">Browse the live matrix: <strong>zyvorai.github.io/zyvor-pharma-qms-site/modules/</strong> and <strong>/markets/</strong>.</p>
+  <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>Page 3 of 3</span></footer>
+</article>
+</body></html>

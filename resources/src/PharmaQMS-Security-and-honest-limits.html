@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><title>Pharma QMS · security-posture</title>
+<link rel="stylesheet" href="print.css">
+</head><body>
+<article class="sheet">
+  <header class="top">
+    <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
+    <div class="meta">Security &amp; honest limits<br>Zyvor AI Labs · 2026</div>
+  </header>
+  <p class="kicker">Security and privacy posture</p>
+  <h1>What we built — and what we <em>have not</em> claimed.</h1>
+  <p class="lede">Plain language for IT and quality. Pharma QMS is self-hosted pilot software. It is not a validated / Part 11 system.</p>
+  <h2>Controls present in the product</h2>
+  <table>
+    <tr><th>Hosting</th><td>You run the stack. Postgres holds plant data. Default desktop bind is loopback (<code>127.0.0.1</code>).</td></tr>
+    <tr><th>Actors</th><td>Pilot role selector: manufacturing, laboratory, QA, viewer, admin — for walkthroughs, not SSO/OIDC yet on this product surface.</td></tr>
+    <tr><th>Audit</th><td>Append-only application audit logging on write paths. Useful for demos; <strong>not</strong> a claim of cryptographic tamper-evidence or WORM storage.</td></tr>
+    <tr><th>Transport</th><td>Operator-controlled TLS at the edge you choose (compose / k3s ingress). Desktop pilot often uses plain HTTP on localhost.</td></tr>
+  </table>
+  <h2>Explicit non-claims</h2>
+  <table>
+    <tr><th>Validation</th><td>Not validated. Not 21 CFR Part 11, EU GMP Annex 11, or WHO computerized-systems certified.</td></tr>
+    <tr><th>Gateways</th><td>No live CDSCO SUGAM, FDA ESG, EMVS, or E2B exchange.</td></tr>
+    <tr><th>Pen test</th><td>No independent penetration test published yet.</td></tr>
+    <tr><th>Retail</th><td>Not Zyvora Pharmacy (retail medical stores).</td></tr>
+    <tr><th>Data</th><td>Built and demonstrated with synthetic / pilot data.</td></tr>
+  </table>
+  <div class="grid2" style="margin-top:14px">
+    <div class="card"><h3>Report a vulnerability</h3><p>security@zyvor.dev — please do not open public issues with exploit detail.</p></div>
+    <div class="card"><h3>Intended use</h3><p>See docs/INTENDED-USE.md on the public site for the full boundary statement.</p></div>
+  </div>
+  <p class="warn"><strong>Read this before a pilot.</strong> If your quality unit needs Part 11 evidence packs, those are a customer validation programme — not something this PDF or the software asserts.</p>
+  <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>security@zyvor.dev</span></footer>
+</article>
+</body></html>

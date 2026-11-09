@@ -1,40 +1,56 @@
 <div align="center">
 
-<img src="assets/mark-light.svg" alt="Zyvor Pharma QMS" width="64" height="64">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+  <img src="assets/banner-light.svg" alt="Zyvor Pharma QMS: batch to release for manufacturers" width="100%">
+</picture>
 
-# Zyvor Pharma QMS
+<p>
+  <img alt="Status: pilot-ready" src="https://img.shields.io/badge/status-pilot--ready-0071e3?style=flat-square">
+  <img alt="Not validated" src="https://img.shields.io/badge/validation-not%20validated-ff453a?style=flat-square">
+  <img alt="Not Part 11" src="https://img.shields.io/badge/Part%2011-not%20claimed-ff9f0a?style=flat-square">
+  <img alt="Markets" src="https://img.shields.io/badge/markets-India%20%C2%B7%20US%20%C2%B7%20EU-34c759?style=flat-square">
+  <img alt="Modules" src="https://img.shields.io/badge/modules-59-0071e3?style=flat-square">
+  <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-compose%20%2F%20self--hosted-0071e3?style=flat-square&logo=postgresql&logoColor=white">
+</p>
 
-**Batch to release for manufacturers.**
+<p>
+  <a href="https://zyvorai.github.io/zyvor-pharma-qms-site/"><img alt="Website" src="https://img.shields.io/badge/Website-0071e3?style=for-the-badge"></a>
+  <a href="https://zyvorai.github.io/zyvor-pharma-qms-site/try/"><img alt="Try it" src="https://img.shields.io/badge/Try%20it-34c759?style=for-the-badge"></a>
+  <a href="docs/README.md"><img alt="Docs" src="https://img.shields.io/badge/Docs-0071e3?style=for-the-badge"></a>
+  <a href="resources/PharmaQMS-Executive-overview.pdf"><img alt="PDF pack" src="https://img.shields.io/badge/PDFs-86868b?style=for-the-badge"></a>
+</p>
 
-[![Status: pilot-ready](https://img.shields.io/badge/status-pilot--ready-0071e3?style=flat-square)](#)
-[![Not validated](https://img.shields.io/badge/validation-not%20validated-ff453a?style=flat-square)](#)
-[![Not Part 11](https://img.shields.io/badge/Part%2011-not%20claimed-ff9f0a?style=flat-square)](#)
-[![Website](https://img.shields.io/badge/Website-0071e3?style=for-the-badge)](https://zyvorai.github.io/zyvor-pharma-qms-site/)
+### Batch to release for manufacturers.
+
+**One spine for manufacturing, laboratory and QA** — with India Schedule M, US FDA and EU GMP market modules.
+
+<sub>Batches · eBMR · IPC · Laboratory · OOS · Second-person verify · Deviations · CAPA · Release · Genealogy · Stability · Warehouse · APQR / APR / PQR · PV · QP · Serialization · GDP · Licences</sub>
 
 </div>
 
 > [!IMPORTANT]
 > **Zyvor Pharma QMS is pilot-ready software, not a validated / Part 11 system.** Use synthetic or non-regulated demonstration data only. Do not use for regulated release decisions without your own validation. Distinct from retail [Zyvora Pharmacy](https://zyvorai.github.io/zyvor-pharma-site/).
 
-This repository is the **public product website**. There is **no application source code** here. The product repository is private.
+This repository is the **public product website**, one-line installers and printable PDFs. There is **no application source code** here. The product repository is private.
 
-## What it is
+---
 
-Manufacturing quality management: **batch → laboratory → QA → release / recall**, plus plant ops and **India / US / EU / abroad** market modules (APQR, PV, FAR, QP, serialization, GDP, licences, and more).
+## What it covers
 
-- [Website](https://zyvorai.github.io/zyvor-pharma-qms-site/)
-- [Try it](https://zyvorai.github.io/zyvor-pharma-qms-site/try/) — native Mac/Windows apps + one-line install
-- [Modules](https://zyvorai.github.io/zyvor-pharma-qms-site/modules/)
-- [Markets](https://zyvorai.github.io/zyvor-pharma-qms-site/markets/)
-- [Pilot](https://zyvorai.github.io/zyvor-pharma-qms-site/pilot/)
-- [Intended use](docs/INTENDED-USE.md)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/capabilities-dark.svg">
+  <img src="assets/capabilities-light.svg" alt="Six capability groups: manufacturing, laboratory, quality, markets, plant ops, traceability" width="100%">
+</picture>
 
-### Try / install (no source)
+Every module in plain words: **[Modules](https://zyvorai.github.io/zyvor-pharma-qms-site/modules/)** · markets matrix: **[Markets](https://zyvorai.github.io/zyvor-pharma-qms-site/markets/)**.
 
-When a release is published on this repo:
+## Try it on your computer
+
+Native **macOS** (`PharmaQMS.app`) and **Windows** (`PharmaQMS.exe`) apps, or one install command. Postgres + API + console on your machine. Nothing leaves your laptop.
 
 ```bash
-# Mac / Linux
+# Mac or Linux — when a site release publishes the install bundle
 curl -fsSL https://github.com/zyvorai/zyvor-pharma-qms-site/releases/latest/download/get.sh | sh -s -- up
 ```
 
@@ -43,7 +59,60 @@ curl -fsSL https://github.com/zyvorai/zyvor-pharma-qms-site/releases/latest/down
 & ([scriptblock]::Create((irm https://github.com/zyvorai/zyvor-pharma-qms-site/releases/latest/download/get.ps1))) up
 ```
 
-Release assets: `get.sh`, `get.ps1`, `pharma-qms-install.tar.gz`, `SHA256SUMS` (built from the private product tree via `make package-install`). Native apps: `PharmaQMS.app` / `PharmaQMS.exe` from `make desktop-macos` / `make desktop-windows`.
+Full walkthrough: **[Try it](https://zyvorai.github.io/zyvor-pharma-qms-site/try/)**. Developers with the private tree: `make desktop` / `make desktop-macos` / `make desktop-windows`.
+
+---
+
+## How it fits together
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/architecture-dark.svg">
+  <img src="assets/architecture-light.svg" alt="Console, Go API, Postgres, desktop apps and deploy paths" width="100%">
+</picture>
+
+## Security and honest limits
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/security-dark.svg">
+  <img src="assets/security-light.svg" alt="Self-hosted, roles, append-only audit, honest limits" width="100%">
+</picture>
+
+| We built | We do not claim |
+|---|---|
+| Self-hosted Postgres + Go API | Validated / Part 11 / Annex 11 certification |
+| Append-only application audit on writes | Cryptographic WORM / independent pen-test |
+| India / US / EU **electronic-record** modules | Live CDSCO / FDA ESG / EMVS gateways |
+| Desktop + compose + k3s + FluxVM paths | GST / e-invoice tax engine (wrong product) |
+
+**[Intended use](docs/INTENDED-USE.md)** · **[Security page](https://zyvorai.github.io/zyvor-pharma-qms-site/security/)**
+
+---
+
+## Take it to your team (PDFs)
+
+| Sheet | File |
+|---|---|
+| Executive overview | [PharmaQMS-Executive-overview.pdf](resources/PharmaQMS-Executive-overview.pdf) |
+| Pilot guide | [PharmaQMS-Pilot-guide.pdf](resources/PharmaQMS-Pilot-guide.pdf) |
+| Module guide | [PharmaQMS-Module-guide.pdf](resources/PharmaQMS-Module-guide.pdf) |
+| Markets India · US · EU | [PharmaQMS-Markets-India-US-EU.pdf](resources/PharmaQMS-Markets-India-US-EU.pdf) |
+| Security & honest limits | [PharmaQMS-Security-and-honest-limits.pdf](resources/PharmaQMS-Security-and-honest-limits.pdf) |
+| Architecture & deployment | [PharmaQMS-Architecture-and-deployment.pdf](resources/PharmaQMS-Architecture-and-deployment.pdf) |
+| IT & security questions | [PharmaQMS-IT-and-security-questions.pdf](resources/PharmaQMS-IT-and-security-questions.pdf) |
+
+Rebuild: `python3 scripts/gen-graphics.py && ./scripts/render-social.sh && node scripts/build-pdfs.mjs`
+
+---
+
+## Social / Open Graph
+
+| Asset | Use |
+|---|---|
+| [assets/og.png](assets/og.png) | Link previews (1200×630) |
+| [docs/assets/social-preview.png](docs/assets/social-preview.png) | Docs / GitHub social |
+| [assets/banner-light.svg](assets/banner-light.svg) / [banner-dark.svg](assets/banner-dark.svg) | README hero |
+
+---
 
 ## Contact
 
