@@ -23,10 +23,27 @@ This repository is the **public product website**. There is **no application sou
 Manufacturing quality management: **batch → laboratory → QA → release / recall**, plus plant ops and **India / US / EU / abroad** market modules (APQR, PV, FAR, QP, serialization, GDP, licences, and more).
 
 - [Website](https://zyvorai.github.io/zyvor-pharma-qms-site/)
+- [Try it](https://zyvorai.github.io/zyvor-pharma-qms-site/try/) — native Mac/Windows apps + one-line install
 - [Modules](https://zyvorai.github.io/zyvor-pharma-qms-site/modules/)
 - [Markets](https://zyvorai.github.io/zyvor-pharma-qms-site/markets/)
 - [Pilot](https://zyvorai.github.io/zyvor-pharma-qms-site/pilot/)
 - [Intended use](docs/INTENDED-USE.md)
+
+### Try / install (no source)
+
+When a release is published on this repo:
+
+```bash
+# Mac / Linux
+curl -fsSL https://github.com/zyvorai/zyvor-pharma-qms-site/releases/latest/download/get.sh | sh -s -- up
+```
+
+```powershell
+# Windows PowerShell
+& ([scriptblock]::Create((irm https://github.com/zyvorai/zyvor-pharma-qms-site/releases/latest/download/get.ps1))) up
+```
+
+Release assets: `get.sh`, `get.ps1`, `pharma-qms-install.tar.gz`, `SHA256SUMS` (built from the private product tree via `make package-install`). Native apps: `PharmaQMS.app` / `PharmaQMS.exe` from `make desktop-macos` / `make desktop-windows`.
 
 ## Contact
 

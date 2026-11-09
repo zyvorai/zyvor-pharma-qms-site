@@ -4,6 +4,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 need=(index.html site.css site.js theme.js robots.txt sitemap.xml LICENSE README.md
   modules/index.html markets/index.html pilot/index.html deploy/index.html security/index.html contact/index.html
+  try/index.html get.sh get.ps1
   assets/mark-light.svg assets/mark-dark.svg assets/og.png docs/INTENDED-USE.md)
 for f in "${need[@]}"; do
   test -f "$f" || { echo "missing $f" >&2; exit 1; }
