@@ -18,7 +18,7 @@
   var LABEL = {
     light: "light", dark: "dark",
     dashboard: "Release overview", batches: "Batches and eBMR", lab: "Laboratory",
-    quality: "Quality events", markets: "India / US / EU markets", ops: "Plant operations"
+    quality: "Quality events", markets: "India / US / EU markets", ops: "Plant operations", qms: "Quality system trends and SPC"
   };
   var img = document.getElementById("shot"), cap = document.getElementById("shot-cap");
   var groups = [].slice.call(document.querySelectorAll(".seg"));
@@ -33,9 +33,9 @@
     });
   }
   function render() {
-    var src = "shots/" + state.mode + "-" + state.view + ".svg";
-    var text = LABEL[state.view] + " · " + LABEL[state.mode] + " · synthetic illustration";
-    var alt = "Pharma QMS: " + LABEL[state.view] + ", " + LABEL[state.mode] + " appearance, synthetic illustration";
+    var src = "shots/" + state.mode + "-" + state.view + ".png";
+    var text = LABEL[state.view] + " · " + LABEL[state.mode] + " · demo database, synthetic data";
+    var alt = "Pharma QMS: " + LABEL[state.view] + ", " + LABEL[state.mode] + " appearance, screenshot of a demo database with synthetic data";
     syncControls();
     if (!img || img.getAttribute("src") === src) { if (cap) cap.textContent = text; return; }
     img.classList.add("swap");
