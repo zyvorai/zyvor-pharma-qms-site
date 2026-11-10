@@ -145,7 +145,7 @@
   <div class="center"><p class="kicker">Security and records</p><h2>Built so QA can see who did what.</h2><p class="sub">Password login with optional TOTP second factor, re-authenticated signatures, tamper-evident audit events, role gates for QA and laboratory actions.</p></div>
   <div class="grid two">
     <div class="card rv"><h3>Tamper-evident audit</h3><p>Creates, transitions, verifies and approvals write audit events into a hash chain that can be verified, reviewed by exception and exported as CSV.</p></div>
-    <div class="card rv"><h3>Real authentication</h3><p>Strict mode requires password login with optional TOTP and server-side sessions; approvals require password re-entry and record a hash-chained signature. SSO (OIDC/SAML) is not built yet.</p></div>
+    <div class="card rv"><h3>Real authentication</h3><p>Strict mode requires password login with optional TOTP, optional OIDC single sign-on and server-side sessions; approvals require password re-entry and record a hash-chained signature. SAML is not built.</p></div>
     <div class="card rv"><h3>Role-aware actions</h3><p>Manufacturing, lab, quality, readonly and admin actors — QA decisions and QP certification require quality (or admin).</p></div>
     <div class="card rv"><h3>Honest validation status</h3><p>The product banners and API meta state that the system is not validated and not Part 11 / Annex 11 compliant.</p></div>
     <div class="card rv"><h3>Self-hosted</h3><p>Postgres and the API on infrastructure you run — FluxVM on Mac, compose, k3s or Windows/WSL.</p></div>
@@ -169,7 +169,7 @@
       <tr><td>Retail pharmacy</td><td>This is <b>not</b> Zyvora Pharmacy (retail medical stores). Separate product, separate site.</td></tr>
       <tr><td>Security review</td><td>No independent penetration test yet. The audit hash chain is tamper-<i>evident</i> at application level, not tamper-proof storage. Strict authentication must be enabled by the operator; the default demo mode trusts client identity headers.</td></tr>
       <tr><td>AI</td><td>Propose-only template drafts. <b>No model is GMP-validated.</b> AI never releases a batch, approves QA, or files to a regulator.</td></tr>
-      <tr><td>Also not built yet</td><td>OIDC/SAML single sign-on, site-scoped data isolation, offline record entry, customer-executed IQ/OQ/PQ evidence (starter templates exist), ERP/LIMS bidirectional connectors, full PSUR authoring, live serialization repositories, live LLM providers (templates today).</td></tr>
+      <tr><td>Also not built yet</td><td>SAML and WebAuthn sign-in, site-scoped data isolation, offline record entry, customer-executed IQ/OQ/PQ evidence (starter templates exist), ERP/LIMS bidirectional connectors, full PSUR authoring, live serialization repositories, live LLM providers (templates today).</td></tr>
     </tbody>
   </table>
 </section>

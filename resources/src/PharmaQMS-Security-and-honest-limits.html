@@ -14,8 +14,8 @@
   <h2>Controls present in the product</h2>
   <table>
     <tr><th>Hosting</th><td>You run the stack. Postgres holds plant data. Default desktop bind is loopback (<code>127.0.0.1</code>).</td></tr>
-    <tr><th>Actors</th><td>Pilot role selector: manufacturing, laboratory, QA, viewer, admin — for walkthroughs, not SSO/OIDC yet on this product surface.</td></tr>
-    <tr><th>Audit</th><td>Append-only application audit logging on write paths. Useful for demos; <strong>not</strong> a claim of cryptographic tamper-evidence or WORM storage.</td></tr>
+    <tr><th>Actors</th><td>Demo mode uses a role selector that trusts client identity headers — walkthroughs with synthetic data only. Strict mode (operator-enabled) requires argon2id password login, optional TOTP, optional OIDC single sign-on, server-side sessions and password re-entry for approvals. No SAML.</td></tr>
+    <tr><th>Audit</th><td>Append-only application audit events in a verifiable hash chain with review-by-exception. Tamper-<em>evident</em> at application level; <strong>not</strong> WORM storage and not an independent security assessment.</td></tr>
     <tr><th>Transport</th><td>Operator-controlled TLS at the edge you choose (compose / k3s ingress). Desktop pilot often uses plain HTTP on localhost.</td></tr>
   </table>
   <h2>Explicit non-claims</h2>
