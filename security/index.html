@@ -46,7 +46,8 @@
 <div class="grid two">
 <div class="card rv"><h3>Actor identity</h3><p>Writes carry actor username, display name and role headers; audit events record who did what.</p></div>
 <div class="card rv"><h3>Role gates</h3><p>Quality and laboratory actions refuse wrong roles. Admin bypasses for evaluation convenience.</p></div>
-<div class="card rv"><h3>Append-only audit</h3><p>Application-level audit log with CSV export. Not a claim of cryptographic tamper-proof storage.</p></div>
+<div class="card rv"><h3>Tamper-evident audit</h3><p>Application-level audit log in a verifiable hash chain, with review-by-exception and CSV export. Tamper-<i>evident</i>, not a claim of tamper-proof storage.</p></div>
+<div class="card rv"><h3>Authentication and signatures</h3><p>Strict mode: argon2id password login, optional TOTP, server-side sessions, API keys stored hashed, and password re-entry for approvals. Default demo mode trusts identity headers and must not hold real records. No SSO yet.</p></div>
 <div class="card rv"><h3>Honest banners</h3><p>UI and API meta state that the system is not validated and not Part 11.</p></div>
 </div>
 <div class="limits">

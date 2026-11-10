@@ -121,7 +121,10 @@
     <div class="card rv"><h3>Quality system</h3><p>Deviations, CAPA, complaints, internal audits with findings, risk register, quarantine, recalls and CoA draft.</p></div>
     <div class="card rv"><h3>Stability &amp; environment</h3><p>Stability studies and pulls, environmental readings, temperature excursions and notifications.</p></div>
     <div class="card rv"><h3>Warehouse &amp; supply</h3><p>Locations, inventory moves, suppliers and SCAR-style actions, labels and packaging orders.</p></div>
-    <div class="card rv"><h3>Governance</h3><p>Document metadata, training logs, change control, equipment due dates, ALCOA+ checks and append-only audit export.</p></div>
+    <div class="card rv"><h3>Governance &amp; document control</h3><p>Document revisions with independent approval, effective dating and periodic review; training auto-assigned with scored exams; change control, ALCOA+ checks and hash-chained audit with review by exception.</p></div>
+    <div class="card rv"><h3>Workflow &amp; equipment</h3><p>Tasks with due dates, reminders and escalation (in-app, email, webhook); calibration and preventive-maintenance plans that open tasks before they fall due.</p></div>
+    <div class="card rv"><h3>Trends &amp; SPC</h3><p>OOS rate, CAPA cycle time and deviation trends, SPC control charts with Cpk, and an indicative quality-maturity scorecard.</p></div>
+    <div class="card rv"><h3>Supplier portal &amp; integrations</h3><p>Scoped supplier logins to answer their own corrective actions; API keys, webhooks and CSV import.</p></div>
     <div class="card rv"><h3>AI assistants (propose-only)</h3><p>Deviation, CAPA, OOS, CoA, complaint, change, APQR and inspection drafts, plus ask-this-batch and release-gap explainers. Humans accept — never auto-releases. Not GMP-validated.</p></div>
   </div>
 </section>
@@ -139,9 +142,10 @@
 </section>
 
 <section id="security">
-  <div class="center"><p class="kicker">Security and records</p><h2>Built so QA can see who did what.</h2><p class="sub">Actor identity on every write, append-only audit events, role gates for QA and laboratory actions.</p></div>
+  <div class="center"><p class="kicker">Security and records</p><h2>Built so QA can see who did what.</h2><p class="sub">Password login with optional TOTP second factor, re-authenticated signatures, tamper-evident audit events, role gates for QA and laboratory actions.</p></div>
   <div class="grid two">
-    <div class="card rv"><h3>Append-only audit</h3><p>Creates, transitions, verifies and approvals write audit events that can be listed and exported as CSV.</p></div>
+    <div class="card rv"><h3>Tamper-evident audit</h3><p>Creates, transitions, verifies and approvals write audit events into a hash chain that can be verified, reviewed by exception and exported as CSV.</p></div>
+    <div class="card rv"><h3>Real authentication</h3><p>Strict mode requires password login with optional TOTP and server-side sessions; approvals require password re-entry and record a hash-chained signature. SSO (OIDC/SAML) is not built yet.</p></div>
     <div class="card rv"><h3>Role-aware actions</h3><p>Manufacturing, lab, quality, readonly and admin actors — QA decisions and QP certification require quality (or admin).</p></div>
     <div class="card rv"><h3>Honest validation status</h3><p>The product banners and API meta state that the system is not validated and not Part 11 / Annex 11 compliant.</p></div>
     <div class="card rv"><h3>Self-hosted</h3><p>Postgres and the API on infrastructure you run — FluxVM on Mac, compose, k3s or Windows/WSL.</p></div>
@@ -163,9 +167,9 @@
       <tr><td>Data</td><td>Built and demonstrated with <b>synthetic / pilot data</b>. Do not use for regulated release decisions without your own validation.</td></tr>
       <tr><td>Market gateways</td><td>No live CDSCO SUGAM, FDA ESG, EMVS or E2B exchange. Market modules are electronic-record stubs.</td></tr>
       <tr><td>Retail pharmacy</td><td>This is <b>not</b> Zyvora Pharmacy (retail medical stores). Separate product, separate site.</td></tr>
-      <tr><td>Security review</td><td>No independent penetration test yet. Audit trail is append-only application logging, not a claim of tamper-proof storage.</td></tr>
+      <tr><td>Security review</td><td>No independent penetration test yet. The audit hash chain is tamper-<i>evident</i> at application level, not tamper-proof storage. Strict authentication must be enabled by the operator; the default demo mode trusts client identity headers.</td></tr>
       <tr><td>AI</td><td>Propose-only template drafts. <b>No model is GMP-validated.</b> AI never releases a batch, approves QA, or files to a regulator.</td></tr>
-      <tr><td>Also not built yet</td><td>Customer-owned IQ/OQ/PQ packs, ERP/LIMS bidirectional connectors, full PSUR authoring, live serialization repositories, live LLM providers (templates today).</td></tr>
+      <tr><td>Also not built yet</td><td>OIDC/SAML single sign-on, site-scoped data isolation, offline record entry, customer-executed IQ/OQ/PQ evidence (starter templates exist), ERP/LIMS bidirectional connectors, full PSUR authoring, live serialization repositories, live LLM providers (templates today).</td></tr>
     </tbody>
   </table>
 </section>
