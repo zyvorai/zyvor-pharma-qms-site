@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Security | Zyvor Pharma QMS</title>
-<meta name="description" content="Controls in the pilot product, stated plainly. Not a penetration-test report.">
+<meta name="description" content="Controls in the pilot product at v0.1.0, stated plainly, with the open items. Not a penetration-test report and not an independent audit.">
 <meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://zyvorai.github.io/zyvor-pharma-qms-site/security/">
 <link rel="icon" href="../assets/mark-light.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Zyvor Pharma QMS">
 <meta property="og:title" content="Security | Zyvor Pharma QMS">
-<meta property="og:description" content="Controls in the pilot product, stated plainly. Not a penetration-test report.">
+<meta property="og:description" content="Controls in the pilot product at v0.1.0, stated plainly, with the open items. Not a penetration-test report and not an independent audit.">
 <meta property="og:url" content="https://zyvorai.github.io/zyvor-pharma-qms-site/security/">
 <meta property="og:image" content="https://zyvorai.github.io/zyvor-pharma-qms-site/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -38,25 +38,42 @@
 <main id="main">
 <section class="hero sub-hero">
   <p class="kicker">Security</p>
-  <h1>What we built — and have <em>not</em> claimed.</h1>
-  <p class="lede">Controls in the pilot product, stated plainly. Not a penetration-test report.</p>
+  <h1>What we built, and have <em>not</em> claimed.</h1>
+  <p class="lede">Controls in the pilot product at v0.1.0, stated plainly, with the open items. Pilot, not validated, not 21 CFR Part 11 / Annex 11, synthetic data only. Not a penetration-test report and not an independent audit.</p>
 </section>
 
 <section>
 <div class="grid two">
-<div class="card rv"><h3>Actor identity</h3><p>Writes carry actor username, display name and role headers; audit events record who did what.</p></div>
-<div class="card rv"><h3>Role gates</h3><p>Quality and laboratory actions refuse wrong roles. Admin bypasses for evaluation convenience.</p></div>
-<div class="card rv"><h3>Tamper-evident audit</h3><p>Application-level audit log in a verifiable hash chain, with review-by-exception and CSV export. Tamper-<i>evident</i>, not a claim of tamper-proof storage.</p></div>
-<div class="card rv"><h3>Authentication and signatures</h3><p>Strict mode: argon2id password login, optional TOTP, server-side sessions, API keys stored hashed, and password re-entry for approvals. Optional OIDC single sign-on (authorization code + PKCE). Default demo mode trusts identity headers and must not hold real records. No SAML.</p></div>
+<div class="card rv"><h3>Strict mode: identity and sign-in</h3><p>When the operator enables strict mode: Argon2id password login, optional TOTP second factor, passkeys (WebAuthn), OpenID Connect single sign-on (authorization code + PKCE), SAML 2.0 single sign-on, and SCIM 2.0 provisioning with its own token. Sessions are held server-side and re-checked on every request. Roles are local; SSO, SAML and SCIM can never grant admin. Passkeys, SAML and SCIM are flagged pilot.</p></div>
+<div class="card rv"><h3>Signatures and API keys</h3><p>Batch QA approvals and document-revision approvals require password re-entry in strict mode and write a hash-chained e-signature record. API keys are stored hashed; a key can be pinned to a role and a site. Not a Part 11 / Annex 11 claim.</p></div>
+<div class="card rv"><h3>Login throttling</h3><p>Password and passkey sign-in attempts are throttled per username: 10 failures in 15 minutes returns HTTP 429. State is in process memory, so it is single-node and resets on restart. A side effect is that someone can temporarily lock out a known username.</p></div>
+<div class="card rv"><h3>Outbound request guard</h3><p>Connectors, webhooks, SAML metadata fetches and OIDC discovery go through an address guard that refuses loopback, private, link-local and similar targets by default, including after redirects and DNS rebinding. Operators with internal ERP / LIMS hosts must explicitly relax it.</p></div>
+<div class="card rv"><h3>Connector secrets</h3><p>A connector secret is either encrypted at rest in the database under an operator-supplied key, or referenced by environment-variable name. Referenced names are restricted to a dedicated prefix so a connector cannot be pointed at arbitrary server settings. Secrets are not logged or returned by the API.</p></div>
+<div class="card rv"><h3>Tamper-evident audit</h3><p>Application-level audit log in a verifiable hash chain, with review by exception (reviewed per site) and CSV export. Tamper-<i>evident</i>, not tamper-proof: the chain detects edits, not truncation of the newest rows, and the database owner can bypass the append-only rules. Restrict database privileges in deployment.</p></div>
+<div class="card rv"><h3>Site scoping (partial)</h3><p>Records carry a site and users carry site grants; most record tables, workflow, notifications, AI drafts, API keys, webhooks and connectors are enforced. It is a pilot feature that has had no independent review. Honest gaps: documents, training assignments, the supplier master, the Schedule M checklist and market authorizations are shared across sites by design; audit events written before the site-scoping migration cannot be backfilled and are filtered best-effort; global connectors, API keys and the global email / webhook notifier are deployment-wide.</p></div>
 <div class="card rv"><h3>Honest banners</h3><p>UI and API meta state that the system is not validated and not Part 11.</p></div>
 </div>
+
+<div class="center" style="margin-top:40px"><p class="kicker">Read before exposing anything</p><h2>Defaults and known gaps.</h2></div>
+<div class="grid two">
+<div class="card rv"><h3>Default dev mode trusts identity headers</h3><p>Out of the box the server runs in dev mode: it believes whoever the request headers say they are and defaults to admin. The shipped compose, Kubernetes and desktop launchers do not turn strict mode on. <b>Never expose a dev-mode instance to anyone but yourself.</b> Anything reachable by others needs strict mode; the server can be told to refuse to start otherwise (production flag), and refuses unknown mode values.</p></div>
+<div class="card rv"><h3>Role checks are inconsistent</h3><p>Quality and laboratory decisions check roles, but many write endpoints (for example some market modules, cleaning, retains, packaging, stability pulls, release-checklist ticking, training and change creation, and the inspection kit download) have no per-role check, so a read-only user could call them. For any public demo, put a read-only guard in front; the live demo does exactly that.</p></div>
+<div class="card rv"><h3>Proxy and single-node limits</h3><p>The API trusts the forwarded-for header, so run it behind a proxy that overwrites it. It has only been exercised as a single process; multi-replica operation is untested. Default database credentials in the shipped deployment files are demo values. TLS is yours to terminate.</p></div>
+<div class="card rv"><h3>AI-assisted security review, not an audit</h3><p>An AI-assisted review (Claude) read the security-critical code and ran tests. It found and fixed issues, including an outbound-request weakness, connector secret exfiltration, dependency vulnerabilities, missing login throttling and a permissive cross-origin policy. <b>It is not an independent audit or penetration test and certifies nothing.</b> It did not cover the frontend source, the desktop app, deployment manifests, TLS, database role design or per-role authorization of every endpoint.</p></div>
+</div>
+
 <div class="limits">
+<p class="dim center" style="margin:0 0 6px"><b>Open items</b></p>
 <ul class="gaps">
+<li>The SAML library has a known unfixed nil-pointer panic with no patched release; it is contained (the request fails, the process survives). We are tracking upstream.</li>
+<li>Some dependency updates need a newer Go toolchain or major frontend upgrades that have not been applied (dev-server issues do not affect production builds).</li>
+<li>Smaller open findings: password re-entry for signatures is not throttled, TOTP codes can be replayed within their window, SSO-only accounts can add a passkey without re-authenticating, SAML login state is not bound to the initiating browser, and a rare concurrent-signature race is suspected but unconfirmed.</li>
 <li>No independent penetration test.</li>
 <li>No SOC 2 / ISO 27001 / Part 11 certification.</li>
-<li>Passwords and full IAM are evaluation-grade actor switching, not enterprise SSO yet.</li>
+<li>Multi-site isolation has not been independently reviewed.</li>
 </ul>
 </div>
+<p class="foot center">Full detail is shared with evaluators on request. <a class="more" href="../resources/PharmaQMS-Security-and-honest-limits.pdf">Security PDF</a></p>
 <p class="center"><a class="btn" href="mailto:security@zyvor.dev?subject=Pharma%20QMS%20security">security@zyvor.dev</a></p>
 </section>
 </main>
