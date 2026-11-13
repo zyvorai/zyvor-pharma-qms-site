@@ -38,22 +38,37 @@
 <main id="main">
 <section class="hero sub-hero" id="top">
   <p class="kicker">Try it</p>
-  <h1>Run it on your <em>own computer.</em></h1>
-  <p class="lede">Native macOS and Windows apps, or one install command. Postgres + API + console on your machine. Nothing leaves your laptop. <strong>Pilot only — not validated / not Part 11.</strong></p>
-  <div class="cta"><a class="btn primary" href="#native">Native apps</a><a class="btn" href="#cli">One-line install</a></div>
-  <ul class="chips" aria-label="What to expect"><li class="ok">Local only</li><li>Mac · Windows · Linux</li><li class="warn">Synthetic data</li><li class="warn">Not Part 11</li></ul>
+  <h1>Click around the <em>live demo,</em> or run it yourself.</h1>
+  <p class="lede">A shared, read-only demo you can open right now, or a local install on your own computer. <strong>Pilot only: not validated, not 21 CFR Part 11 / Annex 11, synthetic data only.</strong></p>
+  <div class="cta"><a class="btn primary" href="#live">Live demo</a><a class="btn" href="#native">Run it locally</a></div>
+  <ul class="chips" aria-label="What to expect"><li class="ok">Live demo, read-only</li><li>Local: Mac · Windows · Linux</li><li class="warn">Synthetic data</li><li class="warn">Not Part 11</li></ul>
 </section>
 
-<section id="native">
-  <div class="center"><p class="kicker">Native apps</p><h2>Double-click to start the pilot.</h2><p class="sub">Built from the product desktop packagers. Needs Podman or Docker Desktop for Postgres (or any Postgres on :5432).</p></div>
-  <div class="grid two">
-    <div class="card rv"><h3>macOS</h3><p><code>PharmaQMS.app</code> — builds with <code>make desktop-macos</code> in the product tree, or download from the latest site release when published.</p><p class="foot">Apple Silicon and Intel. Opens http://127.0.0.1:8080</p></div>
-    <div class="card rv"><h3>Windows</h3><p><code>PharmaQMS.exe</code> + <code>Start-PharmaQMS.bat</code> — build with <code>pwsh desktop/windows/build.ps1</code>, or take the release zip.</p><p class="foot">Docker Desktop recommended. Opens http://127.0.0.1:8080</p></div>
+<section id="live">
+  <div class="center"><p class="kicker">Live demo</p><h2>Open it in your browser.</h2><p class="sub">The 84-entry catalogue running on fictional data. Nothing you do can change it.</p></div>
+  <div class="card" style="max-width:720px;margin:0 auto">
+    <h3>pharma.zyvor.dev</h3>
+    <p><a class="btn primary" href="https://pharma.zyvor.dev" rel="noopener">Open the live demo</a></p>
+    <p style="margin-top:14px">Sign in with user <code>demo</code> and password <code>pharma-demo-2026</code>. This account is public and has the read-only role.</p>
+    <ul>
+      <li><b>Shared and read-only.</b> Everyone uses the same <code>demo</code> account. Saving, creating or approving anything is refused, so nothing needs resetting.</li>
+      <li><b>Synthetic data only.</b> Every record is fictional. Do not enter real or regulated data anywhere.</li>
+      <li><b>May change or be reset.</b> It can be re-seeded, changed or taken offline at any time, and repeated failed sign-ins can briefly lock the shared account.</li>
+      <li><b>Pilot software.</b> Not validated, not 21 CFR Part 11 / Annex 11. A demo is not evidence of compliance.</li>
+    </ul>
   </div>
 </section>
 
-<section id="cli" class="tint">
-  <div class="center"><p class="kicker">One-line install</p><h2>Pick your computer.</h2><p class="sub">Same pattern as other Zyvor product sites. The installer writes under <code>~/.zyvor-pharma-qms</code> and verifies the checksum.</p></div>
+<section id="native" class="tint">
+  <div class="center"><p class="kicker">Run it locally</p><h2>Native apps on your own computer.</h2><p class="sub">Postgres, API and console on your machine; nothing leaves it. Needs Podman or Docker Desktop for Postgres (or any Postgres on :5432). <strong>No install bundles are published yet. Bundles are available on request for evaluation.</strong> <a href="../contact/?topic=pilot">Ask for one</a>.</p></div>
+  <div class="grid two">
+    <div class="card rv"><h3>macOS</h3><p><code>PharmaQMS.app</code>, a launcher that starts Postgres if needed, runs the API and console, and opens your browser. Provided with an evaluation bundle on request.</p><p class="foot">Apple Silicon and Intel. Opens http://127.0.0.1:8080</p></div>
+    <div class="card rv"><h3>Windows</h3><p><code>PharmaQMS.exe</code> with a start script. Provided with an evaluation bundle on request.</p><p class="foot">Docker Desktop recommended. Opens http://127.0.0.1:8080</p></div>
+  </div>
+</section>
+
+<section id="cli">
+  <div class="center"><p class="kicker">One-line install</p><h2>Pick your computer.</h2><p class="sub">The installer scripts expect a release bundle on this site's Releases page. <strong>None is published yet, so these commands will not work today</strong>; they are shown for when one is. Bundles are available on request. The installer writes under <code>~/.zyvor-pharma-qms</code> and verifies the checksum.</p></div>
   <div class="controls"><div class="oseg" role="radiogroup" aria-label="Your computer">
     <button type="button" role="radio" aria-checked="true" data-value="mac">Mac</button>
     <button type="button" role="radio" aria-checked="false" data-value="windows">Windows</button>
@@ -62,7 +77,7 @@
 
   <div class="os-panel" data-os="mac">
     <h3>Mac</h3>
-    <p>Open <strong>Terminal</strong>, paste, press Return. Requires a published release bundle.</p>
+    <p>Open <strong>Terminal</strong>, paste, press Return. Needs a published release bundle (none yet).</p>
     <div class="cmdrow"><pre class="cmd" tabindex="0"><code id="cmd-mac">curl -fsSL https://github.com/zyvorai/zyvor-pharma-qms-site/releases/latest/download/get.sh | sh -s -- up</code></pre><button type="button" class="copy" data-copy="cmd-mac">Copy</button></div>
   </div>
   <div class="os-panel" data-os="windows" hidden>
@@ -75,15 +90,15 @@
     <p>Open a terminal, paste, press Enter.</p>
     <div class="cmdrow"><pre class="cmd" tabindex="0"><code id="cmd-linux">curl -fsSL https://github.com/zyvorai/zyvor-pharma-qms-site/releases/latest/download/get.sh | sh -s -- up</code></pre><button type="button" class="copy" data-copy="cmd-linux">Copy</button></div>
   </div>
-  <p class="foot center">Until the first release ships the tarball, clone the private product repo and run <code>make desktop</code> / <code>make desktop-macos</code>.</p>
+  <p class="foot center">The product source is private. Until a bundle is published, <a href="../contact/?topic=pilot">ask us for an evaluation bundle</a>.</p>
 </section>
 
-<section id="check">
-  <div class="center"><p class="kicker">Check</p><h2>Did it work?</h2></div>
+<section id="check" class="tint">
+  <div class="center"><p class="kicker">Check</p><h2>Did the local install work?</h2></div>
   <ol class="ai-steps">
     <li><b>Health.</b> <code>curl -sf http://127.0.0.1:8080/healthz</code> should return <code>ok</code>.</li>
-    <li><b>Features.</b> Open <code>/api/v1/features</code> — you should see 50+ modules.</li>
-    <li><b>Console.</b> Open the UI, switch actor to <code>qa</code>, create a batch, walk laboratory → approve.</li>
+    <li><b>Features.</b> Open <code>/api/v1/features</code> — you should see 84 catalogue entries (73 modules and 11 AI assistants) plus a maturity map of pilot and partial entries.</li>
+    <li><b>Console.</b> Open the UI, switch actor to <code>qa</code>, create a batch, walk laboratory → approve. A local install starts in dev mode, which trusts identity headers: keep it on your own machine, and use strict mode for anything others can reach.</li>
     <li><b>Stop.</b> Quit the app, or run the installer <code>down</code> command.</li>
   </ol>
 </section>
