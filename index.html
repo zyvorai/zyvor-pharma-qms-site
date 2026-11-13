@@ -51,7 +51,8 @@
   <h1>Batch to release for <em>manufacturers.</em></h1>
   <p class="lede"><strong>One spine for manufacturing, laboratory and QA</strong> — with modules for India Schedule M, US FDA and EU GMP. Electronic records for pilot evaluation. <strong>Not validated. Not 21 CFR Part 11.</strong> Distinct from retail Zyvora Pharmacy.</p>
   <div class="cta">
-    <a class="btn primary" href="try/">Try it on your computer</a>
+    <a class="btn primary" href="https://pharma.zyvor.dev" rel="noopener">Live demo (read-only)</a>
+    <a class="btn" href="try/">Run it on your computer</a>
     <a class="btn" href="pilot/">See the pilot plan</a>
     <a class="btn" href="modules/">Browse modules</a>
     <a class="btn" href="markets/">India · US · EU</a>
@@ -60,8 +61,9 @@
   <ul class="chips" aria-label="Status">
     <li class="ok">Pilot-ready</li>
     <li>Self-hosted</li>
-    <li class="ok">70 modules</li>
+    <li class="ok">84 catalogue entries</li>
     <li class="ok">India / US / EU</li>
+    <li class="ok">Live demo, read-only</li>
     <li class="warn">Synthetic / demo data</li>
     <li class="warn">Not validated</li>
     <li class="warn">Not Part 11</li>
@@ -75,12 +77,12 @@
 </section>
 
 <section class="band" aria-label="By the numbers">
-  <div><b>70</b><span>modules in the feature catalogue</span></div>
-  <div><b>18</b><span>market / regulatory modules</span></div>
-  <div><b>4</b><span>deploy paths: FluxVM, compose, k3s, Windows</span></div>
+  <div><b>84</b><span>catalogue entries: 73 modules + 11 propose-only AI assistants</span></div>
+  <div><b>18</b><span>market / regulatory modules, plus a Schedule M checklist</span></div>
+  <div><b>5</b><span>deploy paths: desktop, compose, FluxVM, k3s, Windows</span></div>
   <div><b>1</b><span>honest spine: batch → lab → QA → release</span></div>
 </section>
-<p class="foot">Counts come from the product's own <code>/api/v1/features</code> and <code>/api/v1/markets/summary</code> catalogue. Pilot electronic records only.</p>
+<p class="foot">Counts come from the product's own <code>/api/v1/features</code> catalogue (release v0.1.0); pilot and partial entries are flagged in its maturity notes. Pilot electronic records only.</p>
 
 <section id="who" class="center">
   <p class="kicker">Built for the plant</p>
@@ -93,7 +95,7 @@
 </section>
 
 <section id="see" class="tint">
-  <div class="center"><p class="kicker">See it</p><h2>The release spine, on screen.</h2><p class="sub">Real screens from the pilot build running on a demo database with synthetic data. Not a validated system.</p></div>
+  <div class="center"><p class="kicker">See it</p><h2>The release spine, on screen.</h2><p class="sub">Screens from an older pilot build running on a demo database with synthetic data; the current build has more modules than these captures show. Not a validated system. <a href="https://pharma.zyvor.dev" rel="noopener">Open the live demo</a> to see the current one.</p></div>
   <div class="controls">
     <div class="seg" role="radiogroup" aria-label="Screen" data-key="view">
       <button type="button" role="radio" aria-checked="true" data-value="dashboard">Overview</button>
@@ -109,7 +111,7 @@
       <button type="button" role="radio" aria-checked="false" data-value="dark">Dark</button>
     </div>
   </div>
-  <figure class="shot"><img id="shot" src="shots/light-dashboard.png" alt="Pharma QMS: Release overview, light appearance, screenshot of a demo database with synthetic data" width="1440" height="900" loading="lazy"><figcaption id="shot-cap">Release overview · light · demo database, synthetic data</figcaption></figure>
+  <figure class="shot"><img id="shot" src="shots/light-dashboard.png" alt="Pharma QMS: Release overview, light appearance, screenshot of a demo database with synthetic data" width="1440" height="900" loading="lazy"><figcaption id="shot-cap">Release overview · light · older build, demo database, synthetic data</figcaption></figure>
 </section>
 
 <section id="modules">
@@ -117,16 +119,16 @@
   <picture class="pic"><img class="only-light" src="assets/capabilities-light.svg" alt="Five groups: manufacturing, laboratory, quality, markets, governance" loading="lazy"><img class="only-dark" src="assets/capabilities-dark.svg" alt="Five groups: manufacturing, laboratory, quality, markets, governance" loading="lazy"></picture>
   <p class="center"><a class="more" href="modules/">All modules</a> &nbsp; <a class="more" href="markets/">Market modules</a></p>
   <div class="grid">
-    <div class="card rv"><h3>Manufacturing &amp; eBMR</h3><p>Status transitions, material genealogy, eBMR step seeding, IPC, line clearance, cleaning, packaging and retain samples.</p></div>
+    <div class="card rv"><h3>Manufacturing &amp; eBMR</h3><p>Status transitions, material genealogy, guided eBMR with forced step order and second-person verification of critical steps, executed batch record PDF, IPC, line clearance, cleaning, packaging and retain samples.</p></div>
     <div class="card rv"><h3>Laboratory &amp; OOS</h3><p>Samples and results against specs, second-person verify, and OOS investigations when a result fails.</p></div>
-    <div class="card rv"><h3>Quality system</h3><p>Deviations, CAPA, complaints, internal audits with findings, risk register, quarantine, recalls and CoA draft.</p></div>
+    <div class="card rv"><h3>Quality system</h3><p>Deviations, CAPA with effectiveness checks, complaints, internal audits with findings, risk register, quarantine, recalls and CoA draft.</p></div>
     <div class="card rv"><h3>Stability &amp; environment</h3><p>Stability studies and pulls, environmental readings, temperature excursions and notifications.</p></div>
-    <div class="card rv"><h3>Warehouse &amp; supply</h3><p>Locations, inventory moves, suppliers and SCAR-style actions, labels and packaging orders.</p></div>
+    <div class="card rv"><h3>Warehouse &amp; supply</h3><p>Locations, inventory moves, suppliers and SCAR-style actions, approved supplier list with qualification and scorecards, labels and packaging orders.</p></div>
     <div class="card rv"><h3>Governance &amp; document control</h3><p>Document revisions with independent approval, effective dating and periodic review; training auto-assigned with scored exams; change control, ALCOA+ checks and hash-chained audit with review by exception.</p></div>
-    <div class="card rv"><h3>Workflow &amp; equipment</h3><p>Tasks with due dates, reminders and escalation (in-app, email, webhook); calibration and preventive-maintenance plans that open tasks before they fall due.</p></div>
+    <div class="card rv"><h3>Workflow &amp; equipment</h3><p>Tasks with due dates, reminders and escalation (in-app, email, webhook); configurable approval workflows with staged and parallel approvers (pilot); calibration and preventive-maintenance plans that open tasks before they fall due.</p></div>
     <div class="card rv"><h3>Trends &amp; SPC</h3><p>OOS rate, CAPA cycle time and deviation trends, SPC control charts with Cpk, and an indicative quality-maturity scorecard.</p></div>
-    <div class="card rv"><h3>Supplier portal &amp; integrations</h3><p>Scoped supplier logins to answer their own corrective actions; API keys, webhooks and CSV import.</p></div>
-    <div class="card rv"><h3>AI assistants (propose-only)</h3><p>Deviation, CAPA, OOS, CoA, complaint, change, APQR and inspection drafts, plus ask-this-batch and release-gap explainers. Humans accept — never auto-releases. Not GMP-validated.</p></div>
+    <div class="card rv"><h3>Supplier portal &amp; integrations</h3><p>Scoped supplier logins to answer their own corrective actions; API keys, webhooks, CSV import, saved reports with scheduled export, and an ERP / LIMS connector framework (pilot, generic HTTP, not vendor-certified). An offline write queue (pilot) covers four safe create endpoints.</p></div>
+    <div class="card rv"><h3>AI assistants (propose-only)</h3><p>Eleven catalogue entries: deviation, CAPA, OOS, CoA, complaint, change, APQR and inspection drafts, plus ask-this-batch and release-gap explainers. Template-based, humans accept; never auto-releases. Not GMP-validated.</p></div>
   </div>
 </section>
 
@@ -134,7 +136,7 @@
   <div class="center"><p class="kicker">Markets</p><h2>India. United States. European Union. Abroad.</h2><p class="sub">Pilot records aligned to how manufacturers talk about Schedule M, FDA and EU GMP — without claiming validation.</p></div>
   <picture class="pic"><img class="only-light" src="assets/markets-light.svg" alt="India, United States, European Union and abroad market coverage" loading="lazy"><img class="only-dark" src="assets/markets-dark.svg" alt="India, United States, European Union and abroad market coverage" loading="lazy"></picture>
   <div class="grid two">
-    <div class="card rv"><span class="tag t-b">India</span><h3>Schedule M oriented</h3><p>APQR, annual self-inspection, PvPI-channel AE, water-system readings, CDSCO-style licence register, pest and hygiene logs.</p></div>
+    <div class="card rv"><span class="tag t-b">India</span><h3>Schedule M oriented</h3><p>APQR, annual self-inspection, PvPI-channel AE, water-system readings, CDSCO-style licence register, pest and hygiene logs, a 17-clause Revised Schedule M readiness checklist (self-assessment only, not a CDSCO filing), an inspection kit export and GS1 / QR label payloads (no barcode rendering).</p></div>
     <div class="card rv"><span class="tag t-b">United States</span><h3>FDA oriented</h3><p>Annual product review, Field Alert stubs, MedWatch-channel AE, DSCSA serialization events, Form 483-style inspection log, CSV inventory (honest: unvalidated).</p></div>
     <div class="card rv"><span class="tag t-b">European Union</span><h3>EU GMP oriented</h3><p>PQR, Annex 16 QP certification meaning statement, FMD serialization events, GDP cold-chain shipments.</p></div>
     <div class="card rv"><span class="tag t-b">Abroad</span><h3>ICH / WHO oriented</h3><p>Tech transfer projects, export CPP drafts, reference standards (IP/USP/EP), hold-time studies, ALCOA+ checklists.</p></div>
@@ -143,19 +145,19 @@
 </section>
 
 <section id="security">
-  <div class="center"><p class="kicker">Security and records</p><h2>Built so QA can see who did what.</h2><p class="sub">Password login with optional TOTP second factor, re-authenticated signatures, tamper-evident audit events, role gates for QA and laboratory actions.</p></div>
+  <div class="center"><p class="kicker">Security and records</p><h2>Built so QA can see who did what.</h2><p class="sub">Password login with optional TOTP, passkeys, OIDC and SAML single sign-on, re-authenticated signatures, tamper-evident audit events, role gates for QA and laboratory actions.</p></div>
   <div class="grid two">
     <div class="card rv"><h3>Tamper-evident audit</h3><p>Creates, transitions, verifies and approvals write audit events into a hash chain that can be verified, reviewed by exception and exported as CSV.</p></div>
-    <div class="card rv"><h3>Real authentication</h3><p>Strict mode requires password login with optional TOTP, optional OIDC single sign-on and server-side sessions; approvals require password re-entry and record a hash-chained signature. SAML is not built.</p></div>
-    <div class="card rv"><h3>Role-aware actions</h3><p>Manufacturing, lab, quality, readonly and admin actors — QA decisions and QP certification require quality (or admin).</p></div>
+    <div class="card rv"><h3>Real authentication</h3><p>Strict mode requires Argon2id password login with optional TOTP, passkeys, OIDC or SAML single sign-on (SAML, passkeys and SCIM are pilot) and server-side sessions; approvals require password re-entry and record a hash-chained signature. Outbound connector and webhook calls go through an SSRF guard.</p></div>
+    <div class="card rv"><h3>Role-aware actions</h3><p>Manufacturing, lab, quality, readonly and admin actors; QA decisions and QP certification require quality (or admin). Role checks are not yet applied to every write endpoint, and site scoping is partial.</p></div>
     <div class="card rv"><h3>Honest validation status</h3><p>The product banners and API meta state that the system is not validated and not Part 11 / Annex 11 compliant.</p></div>
-    <div class="card rv"><h3>Self-hosted</h3><p>Postgres and the API on infrastructure you run — FluxVM on Mac, compose, k3s or Windows/WSL.</p></div>
+    <div class="card rv"><h3>Self-hosted</h3><p>Postgres and the API on infrastructure you run: desktop launchers, compose, FluxVM on Mac, k3s or Windows/WSL.</p></div>
   </div>
-  <p class="foot center">No independent penetration test yet. <a class="more" href="#honest">Read the honest limits</a> <a class="more" href="security/">Security in detail</a></p>
+  <p class="foot center">No independent penetration test yet; an AI-assisted review was done and is not an independent audit. <a class="more" href="#honest">Read the honest limits</a> <a class="more" href="security/">Security in detail</a></p>
 </section>
 
 <section id="deploy" class="tint">
-  <div class="center"><p class="kicker">Deploy</p><h2>Run it your way.</h2><p class="sub">Mac via FluxVM, Linux compose, k3s/Helm, or Windows Docker Desktop / WSL — same pilot stack.</p><a class="more" href="deploy/">Deployment in detail</a> &nbsp; <a class="more" href="mailto:sales@zyvor.dev?subject=Pharma%20QMS%20deployment">Ask about deployment</a></div>
+  <div class="center"><p class="kicker">Deploy</p><h2>Run it your way.</h2><p class="sub">Desktop launchers, Linux or Mac compose, FluxVM, k3s/Helm, or Windows Docker Desktop / WSL: same pilot stack, single node, not production-hardened.</p><a class="more" href="deploy/">Deployment in detail</a> &nbsp; <a class="more" href="mailto:sales@zyvor.dev?subject=Pharma%20QMS%20deployment">Ask about deployment</a></div>
   <picture class="pic"><img class="only-light" src="assets/deploy-light.svg" alt="FluxVM, Compose, k3s and Windows deploy options" loading="lazy"><img class="only-dark" src="assets/deploy-dark.svg" alt="FluxVM, Compose, k3s and Windows deploy options" loading="lazy"></picture>
 </section>
 
@@ -168,9 +170,9 @@
       <tr><td>Data</td><td>Built and demonstrated with <b>synthetic / pilot data</b>. Do not use for regulated release decisions without your own validation.</td></tr>
       <tr><td>Market gateways</td><td>No live CDSCO SUGAM, FDA ESG, EMVS or E2B exchange. Market modules are electronic-record stubs.</td></tr>
       <tr><td>Retail pharmacy</td><td>This is <b>not</b> Zyvora Pharmacy (retail medical stores). Separate product, separate site.</td></tr>
-      <tr><td>Security review</td><td>No independent penetration test yet. The audit hash chain is tamper-<i>evident</i> at application level, not tamper-proof storage. Strict authentication must be enabled by the operator; the default demo mode trusts client identity headers.</td></tr>
+      <tr><td>Security review</td><td>No independent penetration test yet. An AI-assisted security review was done; it is not an independent audit. The audit hash chain is tamper-<i>evident</i> at application level, not tamper-proof storage. Strict authentication must be enabled by the operator; the default mode trusts client identity headers and must never be exposed. Many write endpoints lack per-role checks.</td></tr>
       <tr><td>AI</td><td>Propose-only template drafts. <b>No model is GMP-validated.</b> AI never releases a batch, approves QA, or files to a regulator.</td></tr>
-      <tr><td>Also not built yet</td><td>SAML and WebAuthn sign-in, site-scoped data isolation, offline record entry, customer-executed IQ/OQ/PQ evidence (starter templates exist), ERP/LIMS bidirectional connectors, full PSUR authoring, live serialization repositories, live LLM providers (templates today).</td></tr>
+      <tr><td>Also not built yet</td><td>Site scoping is partial and not independently reviewed; SAML, passkeys, SCIM, approval workflows, connectors and the offline queue are pilot (the offline queue covers four endpoints); connectors are generic HTTP, not vendor-certified ERP/LIMS adapters; customer-executed IQ/OQ/PQ evidence (starter templates exist); the Schedule M checklist is a self-assessment, not a compliance determination; GS1/QR is payload text only; full PSUR authoring; live serialization repositories; live LLM providers (AI drafts are template-based today).</td></tr>
     </tbody>
   </table>
 </section>
@@ -209,9 +211,10 @@
   <details><summary>Is Zyvor Pharma QMS a validated / Part 11 system?</summary><p>No. It is pilot-ready software for evaluation with synthetic or non-regulated demonstration data. It makes no Part 11, Annex 11 or Schedule M compliance claim.</p></details>
   <details><summary>Is this the same as Zyvora Pharmacy?</summary><p>No. Zyvora Pharmacy is retail medical-store software. Pharma QMS is for pharmaceutical manufacturers — batch, lab and QA release.</p></details>
   <details><summary>Can we use it for regulated batch release?</summary><p>Not without your own validation programme. The product itself is not validated for regulated release decisions.</p></details>
-  <details><summary>Does it cover India, US and EU?</summary><p>Yes as pilot electronic-record modules (APQR/APR/PQR, PV, FAR, QP, serialization, GDP, licences, and more). It does not connect to live regulatory gateways.</p></details>
+  <details><summary>Does it cover India, US and EU?</summary><p>Yes as pilot electronic-record modules (APQR/APR/PQR, PV, FAR, QP, serialization, GDP, licences, and more), plus a Revised Schedule M readiness checklist for self-assessment. It does not connect to live regulatory gateways and makes no compliance determination.</p></details>
   <details><summary>Does the AI release batches or file to regulators?</summary><p>No. Assistants are propose-only: they draft deviation, CAPA, OOS, CoA, complaint, change, APQR and inspection text, or explain release gaps / answer ask-this-batch. A person must accept, edit or reject. No model is GMP-validated. Set <code>PHARMA_AI_MODE=off</code> to disable generative drafts.</p></details>
-  <details><summary>Where does our data live?</summary><p>On infrastructure you run: PostgreSQL behind the Go API. Compose, FluxVM, k3s or Windows/WSL.</p></details>
+  <details><summary>Is there a live demo?</summary><p>Yes: <a href="https://pharma.zyvor.dev" rel="noopener">pharma.zyvor.dev</a>, shared, read-only and on synthetic data. Sign-in details are on the <a href="try/#live">Try it</a> page. It may be reset or changed at any time and is not for real data.</p></details>
+  <details><summary>Where does our data live?</summary><p>On infrastructure you run: PostgreSQL behind the Go API. Desktop launchers, compose, FluxVM, k3s or Windows/WSL.</p></details>
   <details><summary>Can I see the source?</summary><p>The product source is private. This repository is the public website only — no application source. Ask sales what we can share with evaluators.</p></details>
 </section>
 
@@ -224,7 +227,7 @@
 
 <footer>
   <div class="cols">
-    <div><h3>Product</h3><a href="try/">Try it</a><a href="#modules">Modules</a><a href="markets/">Markets</a><a href="#deploy">Deploy</a><a href="pilot/">Pilot</a><a href="#resources">PDFs</a></div>
+    <div><h3>Product</h3><a href="https://pharma.zyvor.dev" rel="noopener">Live demo</a><a href="try/">Try it</a><a href="#modules">Modules</a><a href="markets/">Markets</a><a href="#deploy">Deploy</a><a href="pilot/">Pilot</a><a href="#resources">PDFs</a></div>
     <div><h3>Trust</h3><a href="#honest">Honest limits</a><a href="security/">Security</a><a href="docs/INTENDED-USE.md">Intended use</a><a href="#faq">FAQ</a><a href="mailto:security@zyvor.dev">Report a vulnerability</a></div>
     <div><h3>Zyvor AI Labs</h3><a href="https://zyvor.dev">zyvor.dev</a><a href="https://zyvorai.github.io/zyvor-pharma-site/">Zyvora Pharmacy (retail)</a><a href="contact/">Contact sales</a></div>
   </div>
