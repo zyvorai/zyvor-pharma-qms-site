@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Deploy | Zyvor Pharma QMS</title>
-<meta name="description" content="Same pilot stack on Mac FluxVM, Linux compose, k3s/Helm, or Windows Docker Desktop / WSL.">
+<meta name="description" content="Desktop launchers, compose, FluxVM, k3s/Helm or Windows: the same single-node pilot stack.">
 <meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://zyvorai.github.io/zyvor-pharma-qms-site/deploy/">
 <link rel="icon" href="../assets/mark-light.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Zyvor Pharma QMS">
 <meta property="og:title" content="Deploy | Zyvor Pharma QMS">
-<meta property="og:description" content="Same pilot stack on Mac FluxVM, Linux compose, k3s/Helm, or Windows Docker Desktop / WSL.">
+<meta property="og:description" content="Desktop launchers, compose, FluxVM, k3s/Helm or Windows: the same single-node pilot stack.">
 <meta property="og:url" content="https://zyvorai.github.io/zyvor-pharma-qms-site/deploy/">
 <meta property="og:image" content="https://zyvorai.github.io/zyvor-pharma-qms-site/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -38,18 +38,27 @@
 <main id="main">
 <section class="hero sub-hero">
   <p class="kicker">Deploy</p>
-  <h1>Four ways to <em>run it.</em></h1>
-  <p class="lede">Same pilot stack on Mac FluxVM, Linux compose, k3s/Helm, or Windows Docker Desktop / WSL.</p>
+  <h1>Five ways to <em>run it.</em></h1>
+  <p class="lede">Desktop launchers, Linux or Mac compose, macOS FluxVM, k3s/Helm, or Windows Docker Desktop / WSL: the same pilot stack of Postgres, a Go API and a web console. Pilot, not validated, not 21 CFR Part 11 / Annex 11, synthetic data only.</p>
 </section>
 
 <section>
 <div class="grid two">
-<div class="card rv"><h3>Mac · FluxVM</h3><p><code>make deploy-fluxvm</code> or the FluxVM helper in the product deploy tree. Compose fallback if the VM control plane is offline.</p></div>
-<div class="card rv"><h3>Linux · Compose</h3><p>Podman or Docker Compose: Postgres, API and UI. One command up.</p></div>
-<div class="card rv"><h3>Kubernetes · k3s</h3><p>Helm chart and raw manifests for API, UI and Postgres. Import local images for air-gapped labs.</p></div>
-<div class="card rv"><h3>Windows</h3><p>Docker Desktop compose, or WSL2 running the Linux compose script.</p></div>
+<div class="card rv"><h3>Desktop launcher</h3><p>macOS app, Windows executable, or a command-line launcher: starts Postgres if needed, runs the API with the console on one local port, and opens your browser. Best for an afternoon try on your own machine.</p></div>
+<div class="card rv"><h3>Mac or Linux · Compose</h3><p>Podman or Docker Compose: Postgres, API and UI. One command up. Also the path inside WSL2.</p></div>
+<div class="card rv"><h3>Mac · FluxVM</h3><p>A contained plant-like stack in a macOS VM, with a helper script. Compose fallback if the VM control plane is offline.</p></div>
+<div class="card rv"><h3>Kubernetes · k3s</h3><p>Helm chart and raw manifests for API, UI and Postgres. Build and import local images for air-gapped labs. Defaults to one API replica.</p></div>
+<div class="card rv"><h3>Windows</h3><p>Docker Desktop compose script, or WSL2 running the Linux compose script.</p></div>
 </div>
-<p class="foot center">Application images and installers are not published in this website repository. Ask sales for evaluator access.</p>
+
+<div class="center" style="margin-top:40px"><p class="kicker">Before anyone else can reach it</p><h2>Turn on strict mode.</h2></div>
+<div class="grid two">
+<div class="card rv"><h3>Shipped deployments start in dev mode</h3><p>None of the shipped compose, k3s or desktop deployments enable strict authentication. In the default dev mode the server trusts identity headers and defaults to admin, so <b>never expose a default deployment to anyone but yourself</b>. For anything others can reach, set strict mode, mark the environment as production (the server then refuses to start unless strict), and set a one-time bootstrap password. Put it behind a proxy that overwrites forwarded-for headers and terminates TLS.</p></div>
+<div class="card rv"><h3>Other switches, at a high level</h3><p>An allowed-origins list for a UI on another origin; a secret key if connectors store secrets; passkey, OIDC and SAML settings if you use them; an opt-in to let connectors reach private internal hosts (blocked by default); an AI mode switch (off disables the drafting assistants). Database credentials in the shipped files are demo values: change them.</p></div>
+<div class="card rv"><h3>Rollback of the newest migrations</h3><p>29 forward migrations apply at start-up. Opt-in down scripts exist only for the newest three (site scoping and the workflow engine); older migrations are restored from backup. The rollback tool is a dry run unless confirmed, runs newest first, and the older application version must be deployed before restart. Back up the database first.</p></div>
+<div class="card rv"><h3>Honest caveats</h3><p>Single node: the scheduler, connector worker and login throttle run inside one API process, and multi-replica operation is untested. Not production-hardened, not a validated GxP hosting claim. Backups, TLS and database privileges are yours.</p></div>
+</div>
+<p class="foot center">Application images and installers are not published in this website repository, and no install bundles are published yet. Ask sales for an evaluation bundle. <a class="more" href="../resources/PharmaQMS-Architecture-and-deployment.pdf">Architecture PDF</a></p>
 </section>
 </main>
 <footer>
