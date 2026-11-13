@@ -2,14 +2,14 @@
 
 | Doc | What it is |
 |---|---|
-| [INTENDED-USE.md](INTENDED-USE.md) | Boundary statement: pilot only, not Part 11 |
+| [INTENDED-USE.md](INTENDED-USE.md) | Boundary statement: pilot only, not Part 11 / Annex 11, synthetic data only |
 | [assets/social-preview.png](assets/social-preview.png) | Social preview image for docs / GitHub |
 
 ## On the website
 
 - [Home](https://zyvorai.github.io/zyvor-pharma-qms-site/)
-- [Try it](https://zyvorai.github.io/zyvor-pharma-qms-site/try/)
-- [Modules](https://zyvorai.github.io/zyvor-pharma-qms-site/modules/)
+- [Try it](https://zyvorai.github.io/zyvor-pharma-qms-site/try/), including the [live demo](https://pharma.zyvor.dev) (shared, read-only, synthetic data)
+- [Modules](https://zyvorai.github.io/zyvor-pharma-qms-site/modules/) (84 catalogue entries: 73 modules + 11 AI assistants, release v0.1.0)
 - [Markets](https://zyvorai.github.io/zyvor-pharma-qms-site/markets/)
 - [Pilot](https://zyvorai.github.io/zyvor-pharma-qms-site/pilot/)
 - [Deploy](https://zyvorai.github.io/zyvor-pharma-qms-site/deploy/)
