@@ -10,12 +10,12 @@
   </header>
   <p class="kicker">Module guide</p>
   <h1>What each area <em>does.</em></h1>
-  <p class="lede">Counts come from the product feature catalogue (<code>/api/v1/features</code>). Pilot electronic records — not validated.</p>
+  <p class="lede">The feature catalogue (release v0.1.0) lists 84 entries: 73 modules and 11 propose-only AI assistants. Entries marked pilot or partial carry that flag in the catalogue. Pilot electronic records, not validated.</p>
   <h2>Manufacturing</h2>
   <table>
     <tr><th>Batches</th><td>Create and progress manufacturing batches through the release spine.</td></tr>
     <tr><th>Recipes</th><td>Bill of materials / process recipes linked to batches.</td></tr>
-    <tr><th>eBMR</th><td>Electronic batch manufacturing record steps and sign-offs (pilot).</td></tr>
+    <tr><th>Guided eBMR</th><td>Forced step order, executor recorded, second-person verification of critical steps; executed batch record PDF (watermarked pilot output).</td></tr>
     <tr><th>IPC</th><td>In-process controls recorded against the batch.</td></tr>
     <tr><th>Line clearance</th><td>Clearance checks before a campaign continues.</td></tr>
     <tr><th>Cleaning / packaging / retains</th><td>Plant floor adjacent records on the same spine.</td></tr>
@@ -29,7 +29,7 @@
   </table>
   <h2>Quality &amp; release</h2>
   <table>
-    <tr><th>Deviations / CAPA</th><td>Quality events and corrective / preventive actions.</td></tr>
+    <tr><th>Deviations / CAPA</th><td>Quality events and corrective / preventive actions; closing a CAPA needs a completed effectiveness check; parent / follow-up CAPAs.</td></tr>
     <tr><th>Complaints / audits / risk</th><td>Post-market and internal quality governance stubs.</td></tr>
     <tr><th>QA approvals</th><td>QA disposition on the batch path.</td></tr>
     <tr><th>Release checklist</th><td>Structured gates before release / recall actions.</td></tr>
@@ -45,7 +45,7 @@
   <h2>Materials, traceability, plant</h2>
   <table>
     <tr><th>Lots / quarantine</th><td>Material lots with quarantine and release states.</td></tr>
-    <tr><th>Suppliers / SCAR</th><td>Supplier records and corrective action requests.</td></tr>
+    <tr><th>Suppliers / SCAR</th><td>Supplier records, corrective action requests, approved supplier list with qualification lifecycle, requalification, time-limited QA overrides and scorecards.</td></tr>
     <tr><th>Genealogy</th><td>Forward / backward batch genealogy.</td></tr>
     <tr><th>CoA / recalls</th><td>Certificate of analysis draft and recall case records.</td></tr>
     <tr><th>Stability / environment</th><td>ICH-style studies, pulls, env readings, excursions.</td></tr>
@@ -57,7 +57,10 @@
     <tr><th>Document control &amp; training</th><td>Revisions with independent approval, effective dating, periodic review, controlled copies; training matrix and scored exams.</td></tr>
     <tr><th>Workflow &amp; equipment</th><td>Tasks with reminders and escalation (in-app, email, webhook); calibration and preventive-maintenance plans.</td></tr>
     <tr><th>Trends &amp; SPC</th><td>OOS, CAPA and deviation trends; SPC control charts with Cpk; indicative scorecard.</td></tr>
-    <tr><th>Supplier portal &amp; integrations</th><td>Scoped supplier logins; API keys, webhooks, CSV import.</td></tr>
+    <tr><th>Supplier portal &amp; integrations</th><td>Scoped supplier logins; API keys, webhooks, CSV import. ERP / LIMS connector framework (pilot): generic HTTP, queued delivery, not vendor-certified.</td></tr>
+    <tr><th>Workflow &amp; approvals</th><td>Approval workflow templates (pilot): staged and parallel approvers (all / any), conditions on severity or risk level, auto-start, escalation reassignment, timeline.</td></tr>
+    <tr><th>Identity</th><td>Argon2id + TOTP, passkeys (pilot), OIDC SSO, SAML 2.0 SSO (pilot), SCIM 2.0 (pilot), re-authenticated e-signatures. Site scoping is partial.</td></tr>
+    <tr><th>Reports &amp; offline</th><td>Saved reports over a whitelisted builder with scheduled export. Offline write queue (pilot) for four safe create endpoints with idempotency keys.</td></tr>
     <tr><th>Notifications</th><td>In-product notifications.</td></tr>
     <tr><th>Reports / search / metrics</th><td>Operational views over pilot data.</td></tr>
     <tr><th>Audit</th><td>Hash-chained application audit trail with review by exception.</td></tr>
@@ -72,8 +75,11 @@
     <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
     <div class="meta">Module guide · 3/3<br>Zyvor AI Labs · 2026</div>
   </header>
-  <h2>Market / regulatory modules (18)</h2>
+  <h2>Market / regulatory modules (18) and India readiness aids</h2>
   <table>
+    <tr><th>Schedule M readiness</th><td>Revised Schedule M checklist, 17 clauses, self-assessment only; not a compliance determination or CDSCO filing.</td></tr>
+    <tr><th>Inspection kit</th><td>Zip of JSON records for inspection preparation; no PDF, no attachments, no filters.</td></tr>
+    <tr><th>GS1 / QR payloads</th><td>Payload text only: no barcode rendering, no GTIN check-digit validation.</td></tr>
     <tr><th>APQR / APR / PQR</th><td>India Schedule M product quality review · US annual product review · EU PQR stubs.</td></tr>
     <tr><th>Self-inspection</th><td>Scheduled internal inspections with market scope.</td></tr>
     <tr><th>Pharmacovigilance</th><td>AE / PV case stubs for MAH-style walkthroughs.</td></tr>
@@ -86,7 +92,7 @@
     <tr><th>Water / inspections</th><td>Utilities and regulatory inspection observation stubs.</td></tr>
     <tr><th>ALCOA+ / hygiene / hold-time / export CPP</th><td>Additional abroad / plant hygiene and export packs.</td></tr>
   </table>
-  <p class="lede" style="margin-top:16px">Browse the live matrix: <strong>zyvorai.github.io/zyvor-pharma-qms-site/modules/</strong> and <strong>/markets/</strong>.</p>
+  <p class="lede" style="margin-top:16px">Browse the live matrix: <strong>zyvorai.github.io/zyvor-pharma-qms-site/modules/</strong> and <strong>/markets/</strong>. Live read-only demo (synthetic data): <strong>pharma.zyvor.dev</strong>.</p>
   <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>Page 3 of 3</span></footer>
 </article>
 </body></html>

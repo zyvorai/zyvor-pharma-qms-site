@@ -6,23 +6,35 @@
 <article class="sheet">
   <header class="top">
     <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
-    <div class="meta">Security &amp; honest limits<br>Zyvor AI Labs · 2026</div>
+    <div class="meta">Security &amp; honest limits · 1/2<br>Zyvor AI Labs · 2026</div>
   </header>
   <p class="kicker">Security and privacy posture</p>
   <h1>What we built — and what we <em>have not</em> claimed.</h1>
   <p class="lede">Plain language for IT and quality. Pharma QMS is self-hosted pilot software. It is not a validated / Part 11 system.</p>
   <h2>Controls present in the product</h2>
   <table>
-    <tr><th>Hosting</th><td>You run the stack. Postgres holds plant data. Default desktop bind is loopback (<code>127.0.0.1</code>).</td></tr>
-    <tr><th>Actors</th><td>Demo mode uses a role selector that trusts client identity headers — walkthroughs with synthetic data only. Strict mode (operator-enabled) requires argon2id password login, optional TOTP, optional OIDC single sign-on, server-side sessions and password re-entry for approvals. No SAML.</td></tr>
+    <tr><th>Hosting</th><td>You run the stack. Postgres holds plant data. Default desktop bind is loopback only (this machine).</td></tr>
+    <tr><th>Actors</th><td>Demo mode uses a role selector that trusts client identity headers — walkthroughs with synthetic data only. Strict mode (operator-enabled) requires Argon2id password login, optional TOTP, passkeys, OIDC and SAML single sign-on (SAML, passkeys and SCIM are pilot), SCIM provisioning, server-side sessions, hashed API keys and password re-entry for approvals. <strong>The default dev mode trusts identity headers and must never be exposed.</strong></td></tr>
     <tr><th>Audit</th><td>Append-only application audit events in a verifiable hash chain with review-by-exception. Tamper-<em>evident</em> at application level; <strong>not</strong> WORM storage and not an independent security assessment.</td></tr>
+    <tr><th>Throttling and outbound</th><td>Per-username login throttling (10 failures / 15 minutes, in memory, single node). Connectors, webhooks and SSO metadata fetches go through an address guard against SSRF; connector secrets are encrypted at rest or referenced by restricted names.</td></tr>
+    <tr><th>Site scoping</th><td><strong>Partial.</strong> Enforced on most record tables, workflow, keys and connectors; documents, supplier master, Schedule M checklist and market authorizations are shared by design; older audit events are filtered best-effort; global connectors and keys are deployment-wide. No independent review.</td></tr>
     <tr><th>Transport</th><td>Operator-controlled TLS at the edge you choose (compose / k3s ingress). Desktop pilot often uses plain HTTP on localhost.</td></tr>
   </table>
+  <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>Page 1 of 2</span></footer>
+</article>
+
+<article class="sheet page-break">
+  <header class="top">
+    <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
+    <div class="meta">Security &amp; honest limits · 2/2<br>Zyvor AI Labs · 2026</div>
+  </header>
   <h2>Explicit non-claims</h2>
   <table>
     <tr><th>Validation</th><td>Not validated. Not 21 CFR Part 11, EU GMP Annex 11, or WHO computerized-systems certified.</td></tr>
     <tr><th>Gateways</th><td>No live CDSCO SUGAM, FDA ESG, EMVS, or E2B exchange.</td></tr>
-    <tr><th>Pen test</th><td>No independent penetration test published yet.</td></tr>
+    <tr><th>Pen test</th><td>No independent penetration test. An AI-assisted security review (Claude) was done and fixed several issues; it is <strong>not an independent audit</strong> and did not cover the frontend source, desktop app, deployment manifests or TLS.</td></tr>
+    <tr><th>Role checks</th><td>Many write endpoints have no per-role check, so a read-only user could call them. Use a read-only front guard for public demos.</td></tr>
+    <tr><th>Open items</th><td>SAML library panic with no patched release (contained); dependency updates needing a newer Go toolchain; unthrottled signature re-entry; TOTP replay within window; single-process design.</td></tr>
     <tr><th>Retail</th><td>Not Zyvora Pharmacy (retail medical stores).</td></tr>
     <tr><th>Data</th><td>Built and demonstrated with synthetic / pilot data.</td></tr>
   </table>
@@ -30,7 +42,7 @@
     <div class="card"><h3>Report a vulnerability</h3><p>security@zyvor.dev — please do not open public issues with exploit detail.</p></div>
     <div class="card"><h3>Intended use</h3><p>See docs/INTENDED-USE.md on the public site for the full boundary statement.</p></div>
   </div>
-  <p class="warn"><strong>Read this before a pilot.</strong> If your quality unit needs Part 11 evidence packs, those are a customer validation programme — not something this PDF or the software asserts.</p>
+  <p class="warn"><strong>Read this before a pilot.</strong> The public live demo at pharma.zyvor.dev is shared, read-only and synthetic.  If your quality unit needs Part 11 evidence packs, those are a customer validation programme — not something this PDF or the software asserts.</p>
   <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>security@zyvor.dev</span></footer>
 </article>
 </body></html>

@@ -6,7 +6,7 @@
 <article class="sheet">
   <header class="top">
     <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
-    <div class="meta">Architecture &amp; deployment<br>Zyvor AI Labs · 2026</div>
+    <div class="meta">Architecture &amp; deployment · 1/2<br>Zyvor AI Labs · 2026</div>
   </header>
   <p class="kicker">Architecture and deployment</p>
   <h1>Simple to run. <em>Yours</em> to host.</h1>
@@ -14,8 +14,8 @@
   <h2>Runtime pieces</h2>
   <table>
     <tr><th>Console</th><td>React 19 + Vite SPA. Desktop / install builds serve it same-origin from the API (<code>UI_DIR</code>).</td></tr>
-    <tr><th>API</th><td>Go (chi, pgx). Feature catalogue, batch/lab/QA modules, market stubs, append-only audit.</td></tr>
-    <tr><th>Database</th><td>PostgreSQL with SQL migrations. Default local DSN uses database <code>zyvor_pharma</code>.</td></tr>
+    <tr><th>API</th><td>Go (chi, pgx). 84-entry feature catalogue (73 modules + 11 AI), batch/lab/QA modules, market stubs, hash-chained audit, background scheduler and connector delivery worker in one process.</td></tr>
+    <tr><th>Database</th><td>PostgreSQL with 29 forward SQL migrations applied at start-up; opt-in down scripts for the newest three only (back up first).</td></tr>
     <tr><th>Desktop</th><td><code>pharma-desktop</code> / PharmaQMS.app / PharmaQMS.exe — start Postgres if needed, run API+UI, open the browser.</td></tr>
   </table>
   <h2>Deploy paths</h2>
@@ -23,17 +23,28 @@
     <div class="card"><h3>Desktop</h3><p><code>make desktop</code> · <code>make desktop-macos</code> · <code>make desktop-windows</code>. Best for an afternoon try.</p></div>
     <div class="card"><h3>Compose</h3><p>Podman/Docker Compose for Postgres + services on Mac / Linux / WSL.</p></div>
     <div class="card"><h3>FluxVM</h3><p>macOS FluxVM / lima path for a contained plant-like stack.</p></div>
-    <div class="card"><h3>k3s</h3><p>Helm-oriented install for a small cluster pilot.</p></div>
+    <div class="card"><h3>k3s</h3><p>Helm chart and raw manifests for a small cluster pilot; one API replica by default.</p></div>
+    <div class="card"><h3>Windows</h3><p>Docker Desktop compose script, or WSL2 running the Linux compose path.</p></div>
   </div>
-  <h2>Install bundle (public site releases)</h2>
-  <p>Published assets: <code>get.sh</code>, <code>get.ps1</code>, <code>pharma-qms-install.tar.gz</code>, <code>SHA256SUMS</code>. Built from the private product tree via <code>make package-install</code>. No application source on the marketing repo.</p>
-  <h2>Default local endpoints</h2>
+  <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>Page 1 of 2</span></footer>
+</article>
+
+<article class="sheet page-break">
+  <header class="top">
+    <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
+    <div class="meta">Architecture &amp; deployment · 2/2<br>Zyvor AI Labs · 2026</div>
+  </header>
+  <h2>Install bundle</h2>
+  <p>The public installer scripts (<code>get.sh</code>, <code>get.ps1</code>) expect a bundle and checksums on the site Releases page. <strong>None is published yet</strong>; evaluation bundles are available on request. No application source on the public site.</p>
+  <h2>Before anyone else can reach it</h2>
+  <p>Shipped deployments start in dev mode (identity headers trusted, default admin). Enable strict authentication, mark the environment production, set a one-time bootstrap password, terminate TLS and overwrite forwarded-for headers at a proxy. Other switches, at a high level: allowed origins, a connector secret key, passkey / OIDC / SAML settings, an opt-in for private connector targets, and an AI mode switch. Change the demo database credentials in the shipped files.</p>
+  <h2>Default local endpoints (desktop / install)</h2>
   <table>
-    <tr><th>Health</th><td><code>http://127.0.0.1:8080/healthz</code></td></tr>
-    <tr><th>API + UI</th><td><code>http://127.0.0.1:8080/</code> (desktop / install)</td></tr>
+    <tr><th>Health</th><td><code>/healthz</code> on the local address, port 8080</td></tr>
+    <tr><th>API + UI</th><td>One local port, 8080 (the API serves the built UI)</td></tr>
     <tr><th>Dev split</th><td>API :8080 · Vite UI :5173</td></tr>
   </table>
-  <p class="warn"><strong>Pilot only.</strong> Architecture choices favour evaluability, not a validated GxP hosting claim.</p>
+  <p class="warn"><strong>Pilot only.</strong> Single node (multi-replica untested), not production-hardened, not a validated GxP hosting claim.</p>
   <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>zyvorai.github.io/zyvor-pharma-qms-site/deploy/</span></footer>
 </article>
 </body></html>

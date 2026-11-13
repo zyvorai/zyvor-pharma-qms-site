@@ -6,24 +6,37 @@
 <article class="sheet">
   <header class="top">
     <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
-    <div class="meta">IT &amp; security Q&amp;A<br>Zyvor AI Labs · 2026</div>
+    <div class="meta">IT &amp; security Q&amp;A · 1/2<br>Zyvor AI Labs · 2026</div>
   </header>
   <p class="kicker">IT and security questions</p>
   <h1>Straight answers for <em>your</em> team.</h1>
   <table>
     <tr><th>Where does data live?</th><td>On infrastructure you operate — PostgreSQL behind the Go API. Desktop home under <code>~/.zyvor-pharma-qms</code> for local binaries.</td></tr>
     <tr><th>Cloud required?</th><td>No. Compose, FluxVM, k3s, or native desktop. SaaS is not the default story.</td></tr>
-    <tr><th>SSO / OIDC?</th><td>Not the primary pilot surface yet. Desktop uses a role actor selector for synthetic walkthroughs.</td></tr>
+    <tr><th>SSO / MFA?</th><td>In strict mode: OIDC (code + PKCE) and SAML 2.0 SSO (SAML is pilot), SCIM 2.0 provisioning (pilot), TOTP and passkeys (pilot). Roles stay local; SSO / SAML / SCIM cannot grant admin. The default dev mode and desktop role selector trust identity headers: synthetic walkthroughs on your own machine only.</td></tr>
     <tr><th>Is traffic encrypted?</th><td>You terminate TLS at your reverse proxy / ingress. Localhost desktop demos often use HTTP on loopback only.</td></tr>
-    <tr><th>Multi-tenant?</th><td>Single-plant pilot orientation. Not a multi-tenant SaaS control plane.</td></tr>
+    <tr><th>Multi-site / tenant?</th><td>Site scoping exists but is partial and has had no independent review. Not a multi-tenant SaaS control plane.</td></tr>
+  </table>
+  <footer class="foot"><span>Zyvor AI Labs · pilot-ready · not Part 11</span><span>Page 1 of 2</span></footer>
+</article>
+
+<article class="sheet page-break">
+  <header class="top">
+    <div class="brand"><span class="mark">⚗</span> PHARMA QMS</div>
+    <div class="meta">IT &amp; security Q&amp;A · 2/2<br>Zyvor AI Labs · 2026</div>
+  </header>
+  <table>
     <tr><th>Backups?</th><td>Your Postgres backup policy. The product does not ship a managed backup service.</td></tr>
-    <tr><th>Pen tested?</th><td>No independent pen-test report published yet.</td></tr>
+    <tr><th>Pen tested?</th><td>No. An AI-assisted code review was done; it is not an independent audit or pen test.</td></tr>
     <tr><th>Source code?</th><td>Private product repository. Public site is marketing + install scripts only.</td></tr>
     <tr><th>Part 11?</th><td>No. Not validated. Customer owns validation if they move beyond synthetic pilots.</td></tr>
     <tr><th>Dependencies?</th><td>Go API, React console, PostgreSQL, optional Podman/Docker for local Postgres.</td></tr>
-    <tr><th>Windows?</th><td>Yes — PharmaQMS.exe / PowerShell installer / WSL compose path.</td></tr>
-    <tr><th>macOS?</th><td>Yes — PharmaQMS.app and CLI desktop launcher.</td></tr>
-    <tr><th>Updates?</th><td>Via product releases you choose to deploy; public get.sh verifies SHA-256 of the install tarball.</td></tr>
+    <tr><th>Windows?</th><td>Yes: PharmaQMS.exe launcher, Docker Desktop compose script or WSL compose path (bundles on request).</td></tr>
+    <tr><th>macOS?</th><td>Yes: PharmaQMS.app and CLI desktop launcher (bundles on request).</td></tr>
+    <tr><th>Updates?</th><td>Via product releases you choose to deploy. The public installer scripts verify SHA-256 of a bundle, but no bundles are published yet; evaluation bundles are available on request. Migrations apply at start-up; opt-in down scripts exist only for the newest three.</td></tr>
+    <tr><th>Outbound calls?</th><td>Connectors, webhooks and SSO metadata fetches use an SSRF address guard (private and internal targets refused unless the operator opts in). Connector secrets are encrypted or referenced by restricted environment names.</td></tr>
+    <tr><th>Exposure?</th><td>Run strict mode behind a proxy that overwrites forwarded-for headers and terminates TLS. Shipped deployments start in dev mode; never expose them. Many write endpoints lack per-role checks. Single node only; multi-replica is untested.</td></tr>
+    <tr><th>Live demo?</th><td>pharma.zyvor.dev: shared, read-only, synthetic data; may be reset. Not for real data.</td></tr>
     <tr><th>Logging?</th><td>API logs + hash-chained application audit events (verify endpoint). Wire to your SIEM as you prefer.</td></tr>
   </table>
   <p class="warn">Still unsure? Email <strong>security@zyvor.dev</strong> or <strong>sales@zyvor.dev</strong>. Please do not file public GitHub issues with sensitive infrastructure detail.</p>
