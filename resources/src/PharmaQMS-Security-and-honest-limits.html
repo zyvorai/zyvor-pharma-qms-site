@@ -32,7 +32,7 @@
   <table>
     <tr><th>Validation</th><td>Not validated. Not 21 CFR Part 11, EU GMP Annex 11, or WHO computerized-systems certified.</td></tr>
     <tr><th>Gateways</th><td>No live CDSCO SUGAM, FDA ESG, EMVS, or E2B exchange.</td></tr>
-    <tr><th>Pen test</th><td>No independent penetration test. An AI-assisted security review (Claude) was done and fixed several issues; it is <strong>not an independent audit</strong> and did not cover the frontend source, desktop app, deployment manifests or TLS.</td></tr>
+    <tr><th>Pen test</th><td>No independent penetration test. An AI-assisted security review was done and fixed several issues; it is <strong>not an independent audit</strong> and did not cover the frontend source, desktop app, deployment manifests or TLS.</td></tr>
     <tr><th>Role checks</th><td>Many write endpoints have no per-role check, so a read-only user could call them. Use a read-only front guard for public demos.</td></tr>
     <tr><th>Open items</th><td>SAML library panic with no patched release (contained); dependency updates needing a newer Go toolchain; unthrottled signature re-entry; TOTP replay within window; single-process design.</td></tr>
     <tr><th>Retail</th><td>Not Zyvora Pharmacy (retail medical stores).</td></tr>
