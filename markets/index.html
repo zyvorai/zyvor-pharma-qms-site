@@ -44,12 +44,18 @@
 
 <section>
 <div class="grid two">
-<div class="card rv"><h3>India</h3><p>Schedule M-oriented APQR, self-inspection, PvPI AE channel, water systems, manufacturing-licence register, pest/hygiene.</p></div>
+<div class="card rv"><h3>India</h3><p>Schedule M-oriented APQR, self-inspection, PvPI AE channel, water systems, manufacturing-licence register, pest/hygiene, plus the Revised Schedule M readiness checklist, inspection kit export and GS1 / QR label payloads (below).</p></div>
 <div class="card rv"><h3>United States</h3><p>APR, Field Alert stubs, MedWatch-channel AE, DSCSA serialization events, Form 483-style inspection log, CSV inventory (unvalidated).</p></div>
 <div class="card rv"><h3>European Union</h3><p>PQR, Annex 16 QP certification meaning, FMD serialization, GDP cold-chain shipments.</p></div>
 <div class="card rv"><h3>Abroad / ICH-WHO</h3><p>Tech transfer, export CPP, reference standards, hold-time, ALCOA+, multi-market authorizations.</p></div>
 </div>
-<p class="foot center">No live CDSCO / FDA ESG / EMVS gateways. <a class="more" href="../#honest">Honest limits</a></p>
+<div class="center" style="margin-top:40px"><p class="kicker">India readiness</p><h2>Schedule M aids, with their limits.</h2></div>
+<div class="grid">
+<div class="card rv"><span class="tag t-a">Self-assessment</span><h3>Revised Schedule M readiness checklist</h3><p>17 clauses (quality system and risk management, product quality review, personnel, premises, equipment, utilities, materials and approved suppliers, documentation and data integrity, production, quality control, validation, change, deviations and CAPA, complaints / recall / PV, self-inspection, contract manufacturing, QR / barcode labelling). Each points at the module that holds the evidence and carries a status, owner, evidence note and due date, edited by quality or admin.</p><p class="dim" style="margin-top:10px">A self-assessment aid only: it does not determine compliance, is not a CDSCO filing, and the clause list is a paraphrase to be checked against the current notified text. The checklist is shared across sites.</p></div>
+<div class="card rv"><span class="tag t-a">Preparation aid</span><h3>Inspection kit export</h3><p>One download: a zip of JSON files for deviations, training, self-inspections, regulatory inspections, product quality reviews and the Schedule M checklist, with a manifest of counts and a "not a regulatory submission" note. Follows the caller's site scope.</p><p class="dim" style="margin-top:10px">Limits: no PDF rendering, no attachments, no date or product filter, and no role check beyond being signed in.</p></div>
+<div class="card rv"><span class="tag t-a">Payload only</span><h3>GS1 / QR label payloads</h3><p>Builds a human-readable GS1 element string (GTIN, batch, manufacture and expiry dates) for a batch, checks that the batch number is GS1-encodable, the GTIN has 14 digits and expiry is after manufacture, and warns when GTIN or licence number is missing.</p><p class="dim" style="margin-top:10px">Limits: no barcode or QR image is rendered, the GTIN check digit is not validated, the manufacturing licence has no GS1 identifier and is carried separately, and there is no printer or GS1 registry integration. Not a CDSCO-validated encoding.</p></div>
+</div>
+<p class="foot center">Pilot, not validated, not 21 CFR Part 11 / Annex 11, synthetic data only. No live CDSCO / FDA ESG / EMVS gateways. <a class="more" href="../#honest">Honest limits</a></p>
 </section>
 </main>
 <footer>
