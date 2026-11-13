@@ -62,8 +62,8 @@
 <section id="native" class="tint">
   <div class="center"><p class="kicker">Run it locally</p><h2>Native apps on your own computer.</h2><p class="sub">Postgres, API and console on your machine; nothing leaves it. Needs Podman or Docker Desktop for Postgres (or any Postgres on :5432). <strong>No install bundles are published yet. Bundles are available on request for evaluation.</strong> <a href="../contact/?topic=pilot">Ask for one</a>.</p></div>
   <div class="grid two">
-    <div class="card rv"><h3>macOS</h3><p><code>PharmaQMS.app</code>, a launcher that starts Postgres if needed, runs the API and console, and opens your browser. Provided with an evaluation bundle on request.</p><p class="foot">Apple Silicon and Intel. Opens http://127.0.0.1:8080</p></div>
-    <div class="card rv"><h3>Windows</h3><p><code>PharmaQMS.exe</code> with a start script. Provided with an evaluation bundle on request.</p><p class="foot">Docker Desktop recommended. Opens http://127.0.0.1:8080</p></div>
+    <div class="card rv"><h3>macOS</h3><p><code>PharmaQMS.app</code>, a launcher that starts Postgres if needed, runs the API and console, and opens your browser. Provided with an evaluation bundle on request.</p><p class="foot">Apple Silicon and Intel. Opens in your browser on this machine, port 8080.</p></div>
+    <div class="card rv"><h3>Windows</h3><p><code>PharmaQMS.exe</code> with a start script. Provided with an evaluation bundle on request.</p><p class="foot">Docker Desktop recommended. Opens in your browser on this machine, port 8080.</p></div>
   </div>
 </section>
 
@@ -96,7 +96,7 @@
 <section id="check" class="tint">
   <div class="center"><p class="kicker">Check</p><h2>Did the local install work?</h2></div>
   <ol class="ai-steps">
-    <li><b>Health.</b> <code>curl -sf http://127.0.0.1:8080/healthz</code> should return <code>ok</code>.</li>
+    <li><b>Health.</b> request <code>/healthz</code> on the local address the launcher opens (port 8080); it should return <code>ok</code>.</li>
     <li><b>Features.</b> Open <code>/api/v1/features</code> — you should see 84 catalogue entries (73 modules and 11 AI assistants) plus a maturity map of pilot and partial entries.</li>
     <li><b>Console.</b> Open the UI, switch actor to <code>qa</code>, create a batch, walk laboratory → approve. A local install starts in dev mode, which trusts identity headers: keep it on your own machine, and use strict mode for anything others can reach.</li>
     <li><b>Stop.</b> Quit the app, or run the installer <code>down</code> command.</li>
