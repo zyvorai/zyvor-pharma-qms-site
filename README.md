@@ -61,6 +61,8 @@ Native **macOS** (`PharmaQMS.app`) and **Windows** (`PharmaQMS.exe`) launchers, 
 
 ```bash
 # Mac or Linux — for when a site release publishes the install bundle
+
+[Client overview (PDF)](docs/Zyvor-Pharma-QMS-Client-Overview.pdf)
 curl -fsSL https://github.com/zyvorai/zyvor-pharma-qms-site/releases/latest/download/get.sh | sh -s -- up
 ```
 
