@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Try it | Zyvor Pharma QMS</title>
+<meta name="description" content="Try Zyvor Pharma QMS on your Mac, Windows or Linux computer: native app or one command. Pilot electronic records; synthetic data; not Part 11.">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://zyvorai.github.io/zyvor-pharma-qms-site/try/">
+<link rel="icon" href="../assets/mark-light.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Try Zyvor Pharma QMS on your computer">
+<meta property="og:description" content="Native Mac/Windows apps or one command. Pilot only — not Part 11.">
+<meta property="og:image" content="https://zyvorai.github.io/zyvor-pharma-qms-site/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://zyvorai.github.io/zyvor-pharma-qms-site/assets/og.png">
+<script src="../theme.js"></script>
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="try.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <a class="brand" href="../#top" aria-label="Pharma QMS home">
+    <img class="logo only-light" src="../assets/mark-light.svg" alt="" width="32" height="32"><img class="logo only-dark" src="../assets/mark-dark.svg" alt="" width="32" height="32">
+    <span>PHARMA QMS</span>
+  </a>
+  <nav id="sections" aria-label="Sections">
+    <a class="nav-try" href="../try/">Try it</a><a href="../#modules">Modules</a><a href="../markets/">Markets</a><a href="../pilot/">Pilot</a><a href="../#honest">Honest limits</a>
+  </nav>
+  <div class="bar-actions">
+    <button id="theme" class="icon" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <a class="btn primary small" href="../contact/">Talk to us</a>
+  </div>
+</header>
+<main id="main">
+<section class="hero sub-hero" id="top">
+  <p class="kicker">Try it</p>
+  <h1>Click around the <em>live demo,</em> or run it yourself.</h1>
+  <p class="lede">A shared, read-only demo you can open right now, or a local install on your own computer. <strong>Pilot only: not validated, not 21 CFR Part 11 / Annex 11, synthetic data only.</strong></p>
+  <div class="cta"><a class="btn primary" href="#live">Live demo</a><a class="btn" href="#native">Run it locally</a></div>
+  <ul class="chips" aria-label="What to expect"><li class="ok">Live demo, read-only</li><li>Local: Mac · Windows · Linux</li><li class="warn">Synthetic data</li><li class="warn">Not Part 11</li></ul>
+</section>
+
+<section id="live">
+  <div class="center"><p class="kicker">Live demo</p><h2>Open it in your browser.</h2><p class="sub">The 84-entry catalogue running on fictional data. Nothing you do can change it.</p></div>
+  <div class="card" style="max-width:720px;margin:0 auto">
+    <h3>pharma.zyvor.dev</h3>
+    <p><a class="btn primary" href="https://pharma.zyvor.dev" rel="noopener">Open the live demo</a></p>
+    <p style="margin-top:14px">Sign in with user <code>demo</code> and password <code>pharma-demo-2026</code>. This account is public and has the read-only role.</p>
+    <ul>
+      <li><b>Shared and read-only.</b> Everyone uses the same <code>demo</code> account. Saving, creating or approving anything is refused, so nothing needs resetting.</li>
+      <li><b>Synthetic data only.</b> Every record is fictional. Do not enter real or regulated data anywhere.</li>
+      <li><b>May change or be reset.</b> It can be re-seeded, changed or taken offline at any time, and repeated failed sign-ins can briefly lock the shared account.</li>
+      <li><b>Pilot software.</b> Not validated, not 21 CFR Part 11 / Annex 11. A demo is not evidence of compliance.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="native" class="tint">
+  <div class="center"><p class="kicker">Run it locally</p><h2>Native apps on your own computer.</h2><p class="sub">Postgres, API and console on your machine; nothing leaves it. Needs Podman or Docker Desktop for Postgres (or any Postgres on :5432). <strong>No install bundles are published yet. Bundles are available on request for evaluation.</strong> <a href="../contact/?topic=pilot">Ask for one</a>.</p></div>
+  <div class="grid two">
+    <div class="card rv"><h3>macOS</h3><p><code>PharmaQMS.app</code>, a launcher that starts Postgres if needed, runs the API and console, and opens your browser. Provided with an evaluation bundle on request.</p><p class="foot">Apple Silicon and Intel. Opens in your browser on this machine, port 8080.</p></div>
+    <div class="card rv"><h3>Windows</h3><p><code>PharmaQMS.exe</code> with a start script. Provided with an evaluation bundle on request.</p><p class="foot">Docker Desktop recommended. Opens in your browser on this machine, port 8080.</p></div>
+  </div>
+</section>
+
+<section id="cli">
+  <div class="center"><p class="kicker">One-line install</p><h2>Pick your computer.</h2><p class="sub">The installer scripts expect a release bundle on this site's Releases page. <strong>None is published yet, so these commands will not work today</strong>; they are shown for when one is. Bundles are available on request. The installer writes under <code>~/.zyvor-pharma-qms</code> and verifies the checksum.</p></div>
+  <div class="controls"><div class="oseg" role="radiogroup" aria-label="Your computer">
+    <button type="button" role="radio" aria-checked="true" data-value="mac">Mac</button>
+    <button type="button" role="radio" aria-checked="false" data-value="windows">Windows</button>
+    <button type="button" role="radio" aria-checked="false" data-value="linux">Linux</button>
+  </div></div>
+
+  <div class="os-panel" data-os="mac">
+    <h3>Mac</h3>
+    <p>Open <strong>Terminal</strong>, paste, press Return. Needs a published release bundle (none yet).</p>
+    <div class="cmdrow"><pre class="cmd" tabindex="0"><code id="cmd-mac">curl -fsSL https://github.com/zyvorai/zyvor-pharma-qms-site/releases/latest/download/get.sh | sh -s -- up</code></pre><button type="button" class="copy" data-copy="cmd-mac">Copy</button></div>
+  </div>
+  <div class="os-panel" data-os="windows" hidden>
+    <h3>Windows</h3>
+    <p>Open <strong>PowerShell</strong>. Docker Desktop or WSL2 recommended.</p>
+    <div class="cmdrow"><pre class="cmd" tabindex="0"><code id="cmd-windows">&amp; ([scriptblock]::Create((irm https://github.com/zyvorai/zyvor-pharma-qms-site/releases/latest/download/get.ps1))) up</code></pre><button type="button" class="copy" data-copy="cmd-windows">Copy</button></div>
+  </div>
+  <div class="os-panel" data-os="linux" hidden>
+    <h3>Linux</h3>
+    <p>Open a terminal, paste, press Enter.</p>
+    <div class="cmdrow"><pre class="cmd" tabindex="0"><code id="cmd-linux">curl -fsSL https://github.com/zyvorai/zyvor-pharma-qms-site/releases/latest/download/get.sh | sh -s -- up</code></pre><button type="button" class="copy" data-copy="cmd-linux">Copy</button></div>
+  </div>
+  <p class="foot center">The product source is private. Until a bundle is published, <a href="../contact/?topic=pilot">ask us for an evaluation bundle</a>.</p>
+</section>
+
+<section id="check" class="tint">
+  <div class="center"><p class="kicker">Check</p><h2>Did the local install work?</h2></div>
+  <ol class="ai-steps">
+    <li><b>Health.</b> request <code>/healthz</code> on the local address the launcher opens (port 8080); it should return <code>ok</code>.</li>
+    <li><b>Features.</b> Open <code>/api/v1/features</code> — you should see 84 catalogue entries (73 modules and 11 AI assistants) plus a maturity map of pilot and partial entries.</li>
+    <li><b>Console.</b> Open the UI, switch actor to <code>qa</code>, create a batch, walk laboratory → approve. A local install starts in dev mode, which trusts identity headers: keep it on your own machine, and use strict mode for anything others can reach.</li>
+    <li><b>Stop.</b> Quit the app, or run the installer <code>down</code> command.</li>
+  </ol>
+</section>
+
+<section class="final">
+  <h2>Need a guided pilot?</h2>
+  <div class="cta"><a class="btn primary" href="../contact/?topic=pilot">Contact sales</a><a class="btn" href="../pilot/">Pilot plan</a></div>
+</section>
+</main>
+<footer>
+  <div class="cols">
+    <div><h3>Product</h3><a href="../#modules">Modules</a><a href="../markets/">Markets</a><a href="../try/">Try it</a></div>
+    <div><h3>Trust</h3><a href="../#honest">Honest limits</a><a href="../security/">Security</a></div>
+    <div><h3>Zyvor AI Labs</h3><a href="https://zyvor.dev">zyvor.dev</a><a href="../contact/">Contact</a></div>
+  </div>
+  <p>© 2026 Zyvor AI Labs. Pilot only — not validated / not Part 11.</p>
+</footer>
+<script src="../site.js"></script>
+<script src="try.js"></script>
+</body>
+</html>

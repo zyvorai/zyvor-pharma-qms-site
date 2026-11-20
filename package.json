@@ -1,0 +1,8 @@
+{
+  "name": "zyvor-pharma-qms-site",
+  "private": true,
+  "description": "Public marketing site for Zyvor Pharma QMS (static files only; no product source).",
+  "scripts": {
+    "check": "bash scripts/leak-guard.sh && bash scripts/site-check.sh"
+  }
+}
